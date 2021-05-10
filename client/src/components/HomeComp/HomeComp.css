@@ -25,11 +25,13 @@
     font-size: 45px;
     margin-bottom: 20px;
     font-family: "Roboto", sans-serif;
+    /* color:azure; */
   }
   
   .HomeComp a.click-button {
     color: #000000;
     background-color: #03dac5;
+    font-weight: 500;
   }
   
   /* .HomeComp img.aspect-ratio {

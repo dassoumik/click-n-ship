@@ -7,7 +7,7 @@ function HomeComp() {
     return (
         <div className="HomeComp">
             <Container>
-                <Grid container spacing={5}>
+                <Grid container spacing={4}>
                     <Grid item xs={12} sm={6}>
                         <Typography className='title' variant='h1'>
                             Click-n-Ship
