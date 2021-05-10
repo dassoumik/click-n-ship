@@ -1,9 +1,14 @@
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import Home from './pages/Home/Home.js';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Click-n-Ship</h1>
+      <Switch> 
+        <Route exact path="/" component={Home}/>
+      </Switch>
     </div>
   );
 }
