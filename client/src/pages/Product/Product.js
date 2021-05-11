@@ -1,11 +1,13 @@
-import React from 'react'
+import { React, useState, useEffect}  from 'react'
 import Navbar from '../../components/Navbar';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import ProductItem from '../../components/ProductItem/ProductItem';
 import productData from "../../util/Api";
-
+import IconButton from '@material-ui/core/IconButton';
+import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 
 
 function Product() {
@@ -26,8 +28,25 @@ function Product() {
         },
         container: {
           padding: "5%"
+        },
+        justify: {
+          display: 'flex',
+          justifyContent: 'spaceBetween'
         }
       }));
+    
+      const [visibleStart, setVisibleStart] = useState(0);  
+      const [visibleEnd, setVisibleEnd] = useState(6);  
+      
+      const handleBackArrow = () => {
+        setVisibleStart((prevValue) => prevValue - 6);
+        setVisibleEnd((prevValue) => prevValue - 6);
+      }
+
+      const handleForwardArrow = () => {
+        setVisibleStart((prevValue) => prevValue + 6);
+        setVisibleEnd((prevValue) => prevValue + 6);
+      }
 
     return (
         <div>
@@ -49,13 +68,19 @@ It is a long established fact that a reader will be distracted by the readable c
           <Paper className={classes.paper}>sm=3</Paper>
         </Grid>
       <Grid container className={classes.container} xs={12} sm={6} md={9} spacing={8}>
-             { productData.map((productData) => 
+             { productData.slice(visibleStart, visibleEnd).map((productData) => 
         <Grid item xs={12} sm={3} md={4}>
           <Paper  className={classes.paper}>
               <ProductItem productData={productData}/>
           </Paper>
         </Grid>
               )}
+        <Grid item className={classes.justify} xs={12}>
+        <IconButton>
+              <ArrowBackIos onClick={handleBackArrow}/>
+              <ArrowForwardIos onClick={handleForwardArrow}/>
+        </IconButton>      
+        </Grid>
         </Grid>
         <Grid item xs={0} sm={3} md={2}>
           <Paper className={classes.paper}>sm=3</Paper>

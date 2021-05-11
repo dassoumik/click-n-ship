@@ -24,27 +24,23 @@ function ProductItem({productData}) {
         root: {
           minWidth: 200,
           maxHeight: 500,
-          margin: 20,
+          boxShadow: '0 0 4px 4px #7e8c99',
           backgroundColor: '#3d4a5d',
           backgroundImage: 'linearGradient(to right, #121212, #3d4a5d)',
-          color: 'white'
+          color: 'white',
+          padding: 20
         },
       });
+
+
 
     //   function ImgMediaCard({productData})  {
         const classes = useStyles();
       
         return (
-          <Card classNraised="true" >
+          <Card className={classes.root} raised="true" >
             <CardActionArea className={"custom-card"}>
-              <CardMedia
-                component="img"
-                alt="product"
-                height="260"
-                image={productData.image}
-                title={productData.title}
-              />
-              <CardContent className="content custom-card">
+              <CardContent className="content">
                 <Typography className='title' gutterBottom variant="h6" component="p">
                   {productData.title}
                 </Typography>
@@ -52,6 +48,13 @@ function ProductItem({productData}) {
                   Price ${productData.price}
                 </Typography>
               </CardContent>
+              <CardMedia
+                component="img"
+                alt="product"
+                height="260"
+                image={productData.image}
+                title={productData.title}
+              />
               <CardActions className="custom-card actions-content">
             <Button className="custom-button" color="red" aria-label="add to shopping cart">
                 <AddShoppingCartIcon/>
