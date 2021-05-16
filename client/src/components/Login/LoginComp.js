@@ -7,7 +7,6 @@ import {
     Container,
     Card,
     Button,
-    Typography
   } from '@material-ui/core';
 import '../../pages/ShippingInfo/ShippingInfo.css';
 
@@ -15,10 +14,28 @@ function LoginComp() {
   
     return (
         <div >
-        <Container className="shipping-container " style={{width: "80%", padding: "4rem"}}>
-          <Typography className="mb-5" variant="h5" component="h6">Ship To</Typography>
-         <Card className="shipping-card" style={{backgroundColor: "#3d4a5d", backgroundImage: "(linearGradient: 'to right, #121212, #3d4a5d')", color: '#f1ca89', boxShadow: '0 0 4px 4px #7e8c99',}}>    
+        <Container className="shipping-container " style={{width: "80%", padding: "4rem", backgroundColor: "#a2b29f"}}>
+         
+         <Card className="shipping-card" raised="true" style={{backgroundColor: "#3d4a5d", backgroundImage: "(linearGradient: 'to right, #121212, #3d4a5d')", color: '#f1ca89', boxShadow: '0 0 4px 4px #7e8c99',}}>    
          <Form>
+         <Form.Row>
+    <Form.Group as={Col} controlId="formGridEmail">
+      <Form.Label>Email</Form.Label>
+      <Form.Control type="email" placeholder="Enter email" />
+    </Form.Group>
+
+    <Form.Group as={Col} controlId="formGridPassword">
+      <Form.Label>Password</Form.Label>
+      <Form.Control type="password" placeholder="Password" />
+    </Form.Group>
+  </Form.Row>
+  <Form.Row style={{display: "flex", justifyContent: "center"}}>
+      <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem"}}>
+        Login
+      </Button> 
+      
+      </Form.Row>   
+      
          <Form.Row>
          <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Name</Form.Label>
@@ -74,18 +91,12 @@ function LoginComp() {
       {/* </Form.Group> */}
        </Form.Row> 
     
-      <Form.Group id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
-      <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}}>
-        Back
-      </Button> 
-      <Button variant="click-button" style={{backgroundColor: "#80ffdb",  marginRight: "2rem", marginTop: "2rem"}}>
-        Pay
+      
+      <Form.Row style={{display: "flex", justifyContent: "center"}}>
+      <Button variant="click-button" style={{backgroundColor: "#80ffdb",   marginTop: "2rem"}}>
+        Singup
       </Button>
       </Form.Row>   
-      
     </Form>
     </Card>
      </Container > 
