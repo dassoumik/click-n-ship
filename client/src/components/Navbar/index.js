@@ -107,6 +107,7 @@ export default function PrimarySearchAppBar() {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+    history.push("/login");
     handleMobileMenuClose();
   };
 
@@ -131,7 +132,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose} >Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -161,10 +162,11 @@ export default function PrimarySearchAppBar() {
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
+          href="/login"
         >
           <AccountCircleIcon />
         </IconButton>
-        <p>Profile</p>
+        <p href="/login">Profile</p>
       </MenuItem>
       <MenuItem>
         <IconButton color="inherit" >
