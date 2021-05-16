@@ -82,10 +82,10 @@ function ShippingInfo() {
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
-  <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}}>
+  <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}} href="/cart">
     Back
   </Button> 
-  <Button variant="click-button" style={{backgroundColor: "#80ffdb",  marginRight: "2rem", marginTop: "2rem"}}>
+  <Button variant="click-button" style={{backgroundColor: "#80ffdb",  marginRight: "2rem", marginTop: "2rem"}} href="/payment">
     Pay
   </Button>
   </Form.Row>   

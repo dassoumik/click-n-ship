@@ -30,7 +30,7 @@ function LoginComp() {
     </Form.Group>
   </Form.Row>
   <Form.Row style={{display: "flex", justifyContent: "center"}}>
-      <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem"}}>
+      <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem"}} href="/product">
         Login
       </Button> 
       
@@ -93,7 +93,7 @@ function LoginComp() {
     
       
       <Form.Row style={{display: "flex", justifyContent: "center"}}>
-      <Button variant="click-button" style={{backgroundColor: "#80ffdb",   marginTop: "2rem"}}>
+      <Button variant="click-button" style={{backgroundColor: "#80ffdb",   marginTop: "2rem"}} href="/product">
         Singup
       </Button>
       </Form.Row>   
