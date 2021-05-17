@@ -11,21 +11,28 @@ import {
 import LoginContext from "../../util/Contexts/LoginContext";
 import '../../pages/ShippingInfo/ShippingInfo.css';
 import { useHistory } from 'react-router-dom';
+import {userData} from '../../util/Api';
 
 function LoginComp() {
   
   const {setUserName} = useContext(LoginContext);   
   const {setLoggedIn} = useContext(LoginContext);
   const refUserName = useRef();
+  const refPassword = useRef();
   const history = useHistory();
 
   const authUser = (e) => {
       // e.preventDefault();
       //API call to validate user credentials;
+      const userDBdata = userData[0];
+      if (userDBdata.email === refUserName.current.value && userDBdata.password === refPassword.current.value ) { 
       console.log(refUserName?.current.value);
     setUserName(refUserName?.current.value);
     setLoggedIn(true);
     history.push("/product");
+      } else {
+        alert("Email or Password incorrect")
+      }
   }
 
     return (
@@ -42,7 +49,7 @@ function LoginComp() {
 
     <Form.Group as={Col} controlId="formGridPassword">
       <Form.Label>Password</Form.Label>
-      <Form.Control type="password" placeholder="Password" />
+      <Form.Control type="password" placeholder="Password" ref={refPassword} />
     </Form.Group>
   </Form.Row>
   <Form.Row style={{display: "flex", justifyContent: "center"}}>
