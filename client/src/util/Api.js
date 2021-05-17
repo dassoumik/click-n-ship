@@ -1,4 +1,4 @@
-const productData = [{
+const Data = {productData : [{
     id: 1,
     title: "2021 Newest Lenovo IdeaPad 3 14'",
     image: "https://m.media-amazon.com/images/I/81uu-C7AX0L._AC_UY218_.jpg",
@@ -158,6 +158,27 @@ const productData = [{
     category: "Laptops",
     rating: "4.0",
     numOfRating: "30173"
-}];
+}],
 
-export default productData;
+userData: [{
+    id: 1,
+    name: "Soumik Das",
+    email: "sd@example.com",
+    address1: "123 Main St",
+    address2: "Apt: 123",
+    address3: "",
+    city: "Atlanta",
+    state: "GA",
+    zip: "30346",
+    password: "password12345",
+    date: Date.now()
+}],
+
+orderData: [{}]
+}
+
+
+
+export const {productData, orderData, userData} = Data;
+
+// export default Data;

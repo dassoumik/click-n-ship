@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import ProductItem from '../../components/ProductItem/ProductItem';
-import productData from "../../util/Api";
+import {productData} from "../../util/Api";
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';

@@ -5,7 +5,9 @@ import './HomeComp.css';
 import LoginComp from '../Login/LoginComp';
 
 
+
 function HomeComp({type}) {
+
     return (
         <div className="HomeComp">
             <Container style={{margin: "0"}}>

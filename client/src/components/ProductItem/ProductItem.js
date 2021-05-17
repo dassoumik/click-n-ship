@@ -31,6 +31,10 @@ function ProductItem({productData}) {
           padding: 20
         },
       });
+    
+    const addToCart = () => {
+      
+    }
 
 
 
@@ -57,7 +61,7 @@ function ProductItem({productData}) {
               />
               <CardActions className="custom-card actions-content">
             <Button className="custom-button" color="red" aria-label="add to shopping cart">
-                <AddShoppingCartIcon/>
+                <AddShoppingCartIcon onClick={addToCart}/>
             </Button>
               </CardActions>
             </CardActionArea>

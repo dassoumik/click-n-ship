@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -18,6 +18,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import logo from '../../assets/images/fav_logo1.jpg';
 import './Navbar.css';
+import LoginContext from '../../util/Contexts/LoginContext'
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -93,6 +94,7 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const {loggedIn} = useContext(LoginContext);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -107,7 +109,9 @@ export default function PrimarySearchAppBar() {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
-    history.push("/login");
+    let path;
+    loggedIn ?  path= "/profile": path = "/login"
+    history.push(path)
     handleMobileMenuClose();
   };
 
@@ -132,7 +136,8 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose} >Profile</MenuItem>
+      {loggedIn ? 
+      <MenuItem onClick={handleMenuClose} >Profile</MenuItem> : <MenuItem onClick={handleMenuClose} >Login</MenuItem> }
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -166,7 +171,9 @@ export default function PrimarySearchAppBar() {
         >
           <AccountCircleIcon />
         </IconButton>
-        <p href="/login">Profile</p>
+        {loggedIn ? 
+        (<p use="button" href="/profile">Profile</p>) : (<p use="button" href="/login">Login</p>) 
+        }
       </MenuItem>
       <MenuItem>
         <IconButton color="inherit" >
