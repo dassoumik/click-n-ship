@@ -18,7 +18,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import logo from '../../assets/images/fav_logo1.jpg';
 import './Navbar.css';
-import LoginContext from '../../util/Contexts/LoginContext'
+import LoginContext from '../../util/Contexts/LoginContext';
+import {useCartContext} from '../../util/Store.js'
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -87,9 +88,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
+ 
 
 export default function PrimarySearchAppBar() {
+  const [state, dispatch] = useCartContext();
   const history = useHistory();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -170,7 +172,7 @@ export default function PrimarySearchAppBar() {
           </Badge>
         </IconButton>
         <p>Messages</p>
-      </MenuItem>*/}
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -190,7 +192,7 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
       <MenuItem>
         <IconButton color="inherit" >
-          <Badge badgeContent={11} color="secondary" >
+          <Badge badgeContent={state.count} color="secondary" >
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
@@ -251,7 +253,7 @@ export default function PrimarySearchAppBar() {
             <IconButton color="inherit"
               onClick={loadCart}
             >
-              <Badge  color="secondary">
+              <Badge   badgeContent={state.count} color="secondary">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
