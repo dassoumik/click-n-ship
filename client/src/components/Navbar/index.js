@@ -107,11 +107,20 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(null);
   };
 
+  const handleMenuProfileClose = () => {
+    setAnchorEl(null);
+    loggedIn ? history.push("/profile"): history.push("/login")
+    handleMobileMenuClose();
+  };
+
+  const handleMenuOrderClose = () => {
+    setAnchorEl(null);
+    loggedIn ? history.push("/order"): history.push("/login")
+    handleMobileMenuClose();
+  };
+
   const handleMenuClose = () => {
     setAnchorEl(null);
-    let path;
-    loggedIn ?  path= "/profile": path = "/login"
-    history.push(path)
     handleMobileMenuClose();
   };
 
@@ -137,8 +146,9 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       {loggedIn ? 
-      <MenuItem onClick={handleMenuClose} >Profile</MenuItem> : <MenuItem onClick={handleMenuClose} >Login</MenuItem> }
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuProfileClose} >Profile</MenuItem> : <MenuItem onClick={handleMenuProfileClose} >Login</MenuItem> }
+      {loggedIn ? 
+      <MenuItem onClick={handleMenuOrderClose}>Order History</MenuItem> : null }
     </Menu>
   );
 
@@ -173,6 +183,9 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         {loggedIn ? 
         (<p use="button" href="/profile">Profile</p>) : (<p use="button" href="/login">Login</p>) 
+        }
+        {loggedIn ? 
+        (<p use="button" href="/order">Order History</p>) : null 
         }
       </MenuItem>
       <MenuItem>

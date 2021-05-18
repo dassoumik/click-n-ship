@@ -174,7 +174,31 @@ userData: [{
     date: Date.now()
 }],
 
-orderData: [{}]
+orderData: [{
+    orderID: "1",
+    userID: "1",
+    productList: [{
+        productName: "Acer Aspire 5 Slim Laptop",
+        productID: "20",
+        quantity: "1",
+        unitPrice: "432.00"
+    }],
+    taxTotal: "28.00",
+    shippingTotal: "10.00",
+    date: new Date(Date.now()).toLocaleString()
+},{
+    orderID: "2",
+    userID: "1",
+    productList: [{
+        productName: "2021 Newest Lenovo IdeaPad 3 14",
+        productID: "16",
+        quantity: "1",
+        unitPrice: "619.00"
+    }],
+    taxTotal: "42.00",
+    shippingTotal: "10.00",
+    date: new Date(Date.now()).toLocaleString()
+}]
 }
 
 

@@ -8,6 +8,7 @@ import ShippingInfo from './pages/ShippingInfo/ShippingInfo.js';
 import PaymentInfo from './pages/PaymentInfo/PaymentInfo.js';
 import Login from './pages/Login/Login.js';
 import Profile from './pages/Profile/Profile.js';
+import Order from './pages/Order/Order.js';
 import Confirmation from './pages/Confirmation/Confirmation.js';
 import LoginContext from './util/Contexts/LoginContext';
 
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/payment" component={PaymentInfo}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/profile" component={Profile}/>
+        <Route exact path="/order" component={Order}/>
         <Route exact path="/confirmation" component={Confirmation}/>
       </Switch>
       </LoginContext.Provider>
