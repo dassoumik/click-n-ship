@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 // import AddShoppingCartIcon from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import {useCountContext} from '../../util/Store';
 
 import './ProductItem.css'
 
@@ -31,13 +32,9 @@ function ProductItem({productData}) {
           padding: 20
         },
       });
+
+    const [state, dispatch] = useCountContext();
     
-    const addToCart = () => {
-      
-    }
-
-
-
     //   function ImgMediaCard({productData})  {
         const classes = useStyles();
       
@@ -61,7 +58,7 @@ function ProductItem({productData}) {
               />
               <CardActions className="custom-card actions-content">
             <Button className="custom-button" color="red" aria-label="add to shopping cart">
-                <AddShoppingCartIcon onClick={addToCart}/>
+                <AddShoppingCartIcon onClick={() => dispatch({ type: "ADD-TO-CART" })}/>
             </Button>
               </CardActions>
             </CardActionArea>
