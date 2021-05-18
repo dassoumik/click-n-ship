@@ -5,10 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {CountProvider} from './util/Store';
 
 ReactDOM.render(
   <Router>
-    <App />
+    <CountProvider>
+      <App />
+    </CountProvider>
   </Router>,
   document.getElementById('root')
 );
