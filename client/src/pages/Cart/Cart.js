@@ -2,30 +2,34 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import ListItem from '../../components/ListItem/ListItem';
 import {Button} from '@material-ui/core';
-import {Col, Container, Row} from 'react-bootstrap';
+import {Col, Container} from 'react-bootstrap';
 import {useCartContext} from '../../util/Store';
 
-function Cart({products}) {
-    products = [];
-    const [state, ] = useCartContext();
+function Cart() {
+    const [state, dispatch] = useCartContext();
+    // console.log(state.product);
     return (
         <div>
             <Navbar/>
-            <Container className="flex, flex-column">
-                <Col>
+            <div className="flex flex-column">
+            {/* <Container className="flex, flex-column"> */}
+                <Col className="sm-col-8 md-col-8">
                 {console.log(state.cart)}
             {state.cart.map(product => 
-                { console.log(product); return (<ListItem product={product}/>);})}
+                 {return (<ListItem product={product}/>);})}
             </Col>
 
-            </Container>
-            <Container className="flex, flex-column">
+            {/* </Container> */}
+            {/* <Container className="flex, flex-column"> */}
+                <Col className="sm-col-4">
 
             <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem", alignSelf: "right"}} href="/shipping">
                 Checkout
             </Button>
+                </Col>
             
-            </Container>
+            {/* </Container> */}
+            </div>
 
         </div>
     )
