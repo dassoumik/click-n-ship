@@ -18,7 +18,7 @@ const userSchema = new Schema({
     userCreated: { type: Date, default: Date.now }
 });
 
-userSchema.pre(save, function (next) {
+userSchema.pre('save', function (next) {
     var user = this;
 
     // only hash the password if it has been modified (or is new)
