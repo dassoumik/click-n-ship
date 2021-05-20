@@ -20,6 +20,15 @@ function LoginComp() {
   const {setLoggedIn} = useContext(LoginContext);
   const refUserName = useRef();
   const refPassword = useRef();
+  const refAddress1 = useRef();
+  const refAddress2 = useRef();
+  const refAddress3 = useRef();
+  const refCity = useRef();
+  const refState = useRef();
+  const refZip = useRef();
+
+
+
   const history = useHistory();
 
   const authUser = (e) => {
@@ -38,6 +47,24 @@ function LoginComp() {
         alert("Email or Password incorrect")
       }
   }
+
+  const createUser = (e) => {
+    // e.preventDefault();
+    //API call to validate user credentials;
+    // API.postUser({userId: refUserName, password: refPassword, address1: refAddress1, address2: refAddress2, address3: refAddress3, city: refCity, stateCode: refState, zip: refZip});
+    // res.status === 200 ? history.push("/product"); : null;
+
+
+    const userDBdata = userData[0];
+    if (userDBdata.email === refUserName.current.value && userDBdata.password === refPassword.current.value ) { 
+    console.log(refUserName?.current.value);
+    setUserName(refUserName?.current.value);
+    setLoggedIn(true);
+  history.push("/product");
+    } else {
+      alert("Email or Password incorrect")
+    }
+}
 
     return (
         <div >
@@ -120,7 +147,7 @@ function LoginComp() {
     
       
       <Form.Row style={{display: "flex", justifyContent: "center"}}>
-      <Button variant="click-button" style={{backgroundColor: "#80ffdb",   marginTop: "2rem"}} href="/product">
+      <Button variant="click-button" style={{backgroundColor: "#80ffdb",   marginTop: "2rem"}} href="/product" onClick={createUser}>
         Singup
       </Button>
       </Form.Row>   
