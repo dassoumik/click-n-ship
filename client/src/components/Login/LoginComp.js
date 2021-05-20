@@ -12,6 +12,7 @@ import LoginContext from "../../util/Contexts/LoginContext";
 import '../../pages/ShippingInfo/ShippingInfo.css';
 import { useHistory } from 'react-router-dom';
 import {userData} from '../../util/Api';
+import API from "../../util/Connections";
 
 function LoginComp() {
   
@@ -24,11 +25,14 @@ function LoginComp() {
   const authUser = (e) => {
       // e.preventDefault();
       //API call to validate user credentials;
+      // API.getUser({userId: refUserName, password: refPassword});
+
+
       const userDBdata = userData[0];
       if (userDBdata.email === refUserName.current.value && userDBdata.password === refPassword.current.value ) { 
       console.log(refUserName?.current.value);
-    setUserName(refUserName?.current.value);
-    setLoggedIn(true);
+      setUserName(refUserName?.current.value);
+      setLoggedIn(true);
     history.push("/product");
       } else {
         alert("Email or Password incorrect")
