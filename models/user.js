@@ -6,7 +6,7 @@ const SALT_WORK_FACTOR = 10;
 const userSchema = new Schema({
     name: { type: String, required: true },
     username: { type: String, required: false },
-    email: { type: String, required: true, match: [/.+@.+\..+/, "Please enter a valid e-mail address"] },
+    email: { type: String, required: true, unique: true, match: [/.+@.+\..+/, "Please enter a valid e-mail address"] },
     password: { type: String, required: true, required: "Password is Required", validate: [({ length }) => length >= 6, "Password should be longer."] },
     addressStreetOne: { type: String, required: true },
     addressStreetTwo: { type: String, required: false },
