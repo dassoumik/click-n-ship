@@ -1,134 +1,99 @@
-// import React from 'react';
-// import Card from '@material-ui/core/Card';
-// import CardActionArea from '@material-ui/core/CardActionArea';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
-// import CardHeader from '@material-ui/core/CardHeader';
-// import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography'; 
-
-// function ListItem({product}) {
-//     return (
-//         <div>
-//             <Card>
-//                 <CardHeader>{product.title}</CardHeader>
-//                 <CardMedia img={product.image}></CardMedia>
-//             </Card>
-//         </div>
-//     )
-// }
-
-// export default ListItem
-
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
+import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-// import FavoriteIcon from '@material-ui/icons/Favorite';
-import DeleteIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
+import DeletetIcon from '@material-ui/icons/Delete';
+import { CardActionArea, Container } from '@material-ui/core';
+import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
+import {Col} from 'react-bootstrap';
 
 
 function ListItem({product}) {
-    console.log(product);
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    display: 'flex',
+    margin: '2rem',
   },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
   },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
+  content: {
+    flex: '1 0 auto',
   },
-  expandOpen: {
-    transform: 'rotate(180deg)',
+  cover: {
+    width: 151,
+    // width: 30,
   },
-  avatar: {
-    backgroundColor: red[500],
+  controls: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'right',
+    paddingLeft: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    boxShadow: '4px',
   },
+  playIcon: {
+    height: 38,
+    width: 38,
+  },
+  container: {
+      width: 1050,
+      marginLeft: '2rem',
+  }
 }));
 
-// function RecipeReviewCard() {
+// export default function MediaControlCard() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const theme = useTheme();
 
   return (
-  
-    <Card className={classes.root}>
-      <CardHeader
-        // avatar={
-        //   <Avatar aria-label="recipe" className={classes.avatar}>
-        //     R
-        //   </Avatar>
-        // }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
-        title={product.title}
-        // subheader="September 14, 2016"
-      />
-      <CardMedia
-        className={classes.media}
-        image={product.image}
-        title={product.title}
-      />
-      <CardContent>
-          {console.log(product)}
-        <Typography variant="body2" color="textSecondary" component="p">
-          {product.title}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        {/* <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton> */}
-        <IconButton aria-label="Delete">
-          <DeleteIcon />
-        </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Price: <small>$</small></Typography>
-          <Typography paragraph>
-            {product.price}
+      <>
+      <Container className={classes.container}>
+
+    <Card className={classes.root} raised='true'>
+      <div className={classes.details}>
+          <Col className="sm-col-2">
+          <CardMedia
+          className={classes.cover}
+          component="img"
+          image={product.image}
+          title={product.title}
+          /> 
+          </Col>
+        <Col className="sm-col-4">
+        <CardContent className={classes.content}>
+          <Typography component="h5" variant="h5">
+            {product.title}
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary">
+            Price: <small>$</small><strong>{product.price}</strong>
           </Typography>
         </CardContent>
-      </Collapse>
+        </Col>
+        
+        <div className={classes.controls}>
+          <IconButton aria-label="delete" >
+             <DeleteSharpIcon />
+        </IconButton>
+     
+        </div>
+        
+      </div>
+     
     </Card>
+          </Container>
+          
+         </> 
   );
 }
-// }
+
 export default ListItem
