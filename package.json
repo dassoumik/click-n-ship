@@ -16,12 +16,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^4.1.0",
+    "concurrently": "^6.1.0",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "babel": "^6.23.0",
+    "bcrypt": "^5.0.1",
     "bootstrap": "^5.0.0",
     "express": "^4.16.3",
     "global.js": "^1.0.0",
