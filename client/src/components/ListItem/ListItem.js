@@ -12,9 +12,11 @@ import DeletetIcon from '@material-ui/icons/Delete';
 import { CardActionArea, Container } from '@material-ui/core';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import {Col} from 'react-bootstrap';
+import { useCartContext } from '../../util/Store';
 
 
-function ListItem({product}) {
+function ListItem({product, index}) {
+const [,dispatch] = useCartContext();
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +56,11 @@ const useStyles = makeStyles((theme) => ({
 // export default function MediaControlCard() {
   const classes = useStyles();
   const theme = useTheme();
+  const deleteProduct = () => {
+      console.log("in delete function");
+      dispatch({type: "DELETE-FROM-CART", item: {index}});
+
+  }
 
   return (
       <>
@@ -81,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
         </Col>
         
         <div className={classes.controls}>
-          <IconButton aria-label="delete" >
+          <IconButton aria-label="delete" onClick={deleteProduct} >
              <DeleteSharpIcon />
         </IconButton>
      

@@ -10,6 +10,7 @@ const userID = userData.id;
 const reducer = (state, action) => {
 //    const {product} = state;
 console.log(state, action.item);
+console.log(state.cart.slice(action.item, 1));
 //   const initState = {
 //        count: 0,
 //        cart: [],
@@ -26,8 +27,10 @@ console.log(state, action.item);
                 name
             },
             cartTotal: state.cartTotal + parseFloat(action.item.price) };
-  case "subtract":
-    return { count: state.count - 1 };
+  case "DELETE-FROM-CART":
+    return { ...state,
+             count: state.count - 1,
+             cart: state.cart.splice(action.item, 1)};
   default:
     throw new Error(`Invalid action type: ${action.type}`);
   }
