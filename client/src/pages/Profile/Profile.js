@@ -7,6 +7,7 @@ import {userData} from '../../util/Api';
 import './Profile.css';
 
 function Profile() {
+
     return (
         <div>
         <Navbar/>

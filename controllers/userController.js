@@ -9,10 +9,11 @@ module.exports = {
             .then(dbModel => {console.log(); res.json(dbModel)})
             .catch(err => {console.error(err); return res.status(422).json(err)});
     },
-    find: function(req, res) {
+    findOne: function(req, res) {
+        console.log(req.query)
         db.User
-            .find(req.query)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .findOne(req.query)
+            .then(dbModel => {console.log(dbModel); res.json(dbModel)})
+            .catch(err =>  {console.error(err); res.status(422).json(err)});
     }
 }

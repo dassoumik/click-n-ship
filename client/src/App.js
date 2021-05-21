@@ -13,12 +13,12 @@ import Confirmation from './pages/Confirmation/Confirmation.js';
 import LoginContext from './util/Contexts/LoginContext';
 
 function App() {
-  const [userName, setUserName] = useState();
+  const [userData, setUserData] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
  
   return (
     <div className="App">
-      <LoginContext.Provider value = {{userName, setUserName, loggedIn, setLoggedIn}}>
+      <LoginContext.Provider value = {{userData, setUserData, loggedIn, setLoggedIn}}>
       <Switch> 
         <Route exact path="/" component={Home}/>
         <Route exact path="/product" component={Product}/>

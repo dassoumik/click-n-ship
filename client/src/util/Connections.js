@@ -3,11 +3,13 @@ import axios from "axios";
 export const API = {
   // Gets user
   getUser: async function(userCred)  {
-    let res = axios.get("/api/user/", userCred);
+    console.log(userCred);
+    const params = new URLSearchParams([['email', userCred.email], ['password', userCred.password]]);
+    let res = axios.get("/api/users/", { params });
     return res;
   },
  // Gets user
-  postUser: async (userData) => {
+  postUser: async function(userData) {
     console.log(userData);
       try {
     let res = await axios.post("/api/users/", userData);

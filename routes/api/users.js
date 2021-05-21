@@ -5,6 +5,6 @@ const userController = require("../../controllers/userController");
 console.log("in users express api route")
 router.route("/")
   .post(userController.create)
-  .get(userController.find);
+  .get(userController.findOne);
 
 module.exports = router;

@@ -16,7 +16,7 @@ import {API} from "../../util/Connections";
 
 function LoginComp() {
   
-  const {setUserName} = useContext(LoginContext);   
+  const {setUserData} = useContext(LoginContext);   
   const {setLoggedIn} = useContext(LoginContext);
   const refUserName = useRef();
   const refUserEmail = useRef();
@@ -34,16 +34,23 @@ function LoginComp() {
 
   const authUser = (e) => {
       //API call to validate user credentials;
-      API.getUser({email: refUserEmail, password: refPassword})
-          .then(res => {
-      setUserName(refUserName?.current.value);
-      setLoggedIn(true);
-      if (res.status === 200) {
-      history.push("/product");
-      } else {
-        alert("email or password is wrong");
+      const userCred = {
+        email: refUserEmail?.current?.value, 
+        password: refPassword?.current?.value
       }
-    })
+      API.getUser(userCred)
+          .then(res => {
+      
+      // if (res.status === 200) {
+      //   console.log(res);
+      // setUserData(res.data);
+      // setLoggedIn(true);
+      // history.push("/product");
+      // } else {
+      //   alert("email or password is wrong");
+      // }
+      return res.data;
+    }).then(data => console.log(data));
       // const userDBdata = userData[0];
       // if (userDBdata.email === refUserName.current.value && userDBdata.password === refPassword.current.value ) { 
       // console.log(refUserName?.current.value);
@@ -74,11 +81,12 @@ function LoginComp() {
      .then(status => {
        if (status === 200) {
           history.push("/product") 
+          setUserData(userData);
+          setLoggedIn(true);
     } else {
       alert("Something went wrong")  
     }})
-    setUserName(refUserName.current.value);
-    setLoggedIn(true);
+
 
     // const userDBdata = userData[0];
     // if (userDBdata.email === refUserName.current.value && userDBdata.password === refPassword.current.value ) { 

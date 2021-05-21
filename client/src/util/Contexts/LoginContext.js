@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LoginContext = React.createContext({
-    userName: "",
+    userData: {},
     setUserName: () => {},
     loggedIn: false,
     setLoggedIn: () => {}
@@ -11,7 +11,6 @@ const LoginContext = React.createContext({
 
 export default LoginContext 
 
-// export default LoginContext  
 
 
 
