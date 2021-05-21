@@ -41,14 +41,14 @@ function LoginComp() {
       API.getUser(userCred)
           .then(res => {
       
-      // if (res.status === 200) {
-      //   console.log(res);
-      // setUserData(res.data);
-      // setLoggedIn(true);
-      // history.push("/product");
-      // } else {
-      //   alert("email or password is wrong");
-      // }
+      if (res.status === 200) {
+        console.log(res);
+      setUserData(res.data);
+      setLoggedIn(true);
+      history.push("/product");
+      } else {
+        alert("email or password is wrong");
+      }
       return res.data;
     }).then(data => console.log(data));
       // const userDBdata = userData[0];

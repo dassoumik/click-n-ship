@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Navbar from "../../components/Navbar";
 import {Form, Container, Col, Row} from 'react-bootstrap';
 import {Card} from '@material-ui/core';
 import { Typography } from '@material-ui/core';
-import {userData} from '../../util/Api';
+import LoginContext from '../../util/Contexts/LoginContext';
 import './Profile.css';
 
 function Profile() {
-
+    const { userData }= useContext(LoginContext);
+    console.log(userData);
+ 
     return (
         <div>
         <Navbar/>
@@ -18,29 +20,29 @@ function Profile() {
                     <Col className="sm-col-12 md-col-6 profile-container pt-5">
                       <Card className="profile-card" raised="true">   
                        <Typography variant="h5">
-                          <span>{userData[0].name}</span>
+                          <span>{userData.name}</span>
                        </Typography >
                       </Card>  
                       <Card className="profile-card" raised="true">
                        <Typography variant="strong">
-                           Email: <span> {userData[0].email}</span>
+                           Email: <span> {userData.email}</span>
                        </Typography>
                        </Card>
                        <Card className="profile-card" raised="true">   
                        <Typography variant="strong">
-                          <div>{userData[0].address1} </div>
+                          <div>{userData.addressStreetOne} </div>
                        </Typography>
                        <Typography variant="strong">
-                          <div>{userData[0].address2}</div>
+                          <div>{userData.addressStreetTwo}</div>
                        </Typography>
                        <Typography>
-                          <div>{userData[0].address3}</div>
+                          <div>{userData.addressStreetThree}</div>
                        </Typography>
                        <Typography variant="strong">
-                          <div>{userData[0].city},  <span>{userData[0].state}</span></div>
+                          <div>{userData.addressCity},  <span>{userData.addressState}</span></div>
                        </Typography>
                        <Typography variant="strong">
-                          <span>{userData[0].zip}</span>
+                          <span>{userData.addressZip}</span>
                        </Typography>
                       </Card>  
                     </Col>
