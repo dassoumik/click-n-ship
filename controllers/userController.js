@@ -3,10 +3,11 @@ const db = require("../models");
 // define route methods for user controller
 module.exports = {
     create: function(req, res) {
+        console.log("in create user controller");
         db.User
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .then(dbModel => {console.log(); res.json(dbModel)})
+            .catch(err => {console.error(err); return res.status(422).json(err)});
     },
     find: function(req, res) {
         db.User

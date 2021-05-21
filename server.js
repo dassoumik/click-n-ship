@@ -20,7 +20,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/clicknship");
 
 
 // Define API routes here
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
+  console.log(req.body);
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 
 });
