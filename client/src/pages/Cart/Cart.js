@@ -37,7 +37,7 @@ function Cart() {
                 <Col className="sm-col-8 md-col-8">
                 {console.log(state.cart)}
             {state.cart.map((product, index) => 
-                 {return (<ListItem product={product} index={index}/>);})}
+                 {return (<ListItem product={product} index={index} key={index}/>);})}
             </Col>
 
             <Col className="sm-col-3 mt-5 pr-2">

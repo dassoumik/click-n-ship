@@ -2,13 +2,20 @@ import axios from "axios";
 
 export const API = {
   // Gets user
-  getUser: function(userCred)  {
-    return axios.get("/api/user/", userCred);
+  getUser: async function(userCred)  {
+    let res = axios.get("/api/user/", userCred);
+    return res;
   },
  // Gets user
-  postUser: (userData) => {
-        return axios.post("/api/user/", userData);
-      },
+  postUser: async (userData) => {
+    console.log(userData);
+      try {
+    let res = await axios.post("/api/users/", userData);
+    
+    // console.log(res.status);
+    return res.status;
+      } catch(err) { console.error(err)}
+    },
   // Gets all orders
   getOrders: function(userID)  {
     return axios.get("/api/orders/", userID);
