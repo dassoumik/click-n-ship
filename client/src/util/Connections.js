@@ -5,7 +5,7 @@ export const API = {
   getUser: async function(userCred)  {
     console.log(userCred);
     const params = new URLSearchParams([['email', userCred.email], ['password', userCred.password]]);
-    let res = axios.get("/api/users/", { params });
+    let res = await axios.get("/api/users/", {params});
     return res;
   },
  // Gets user
