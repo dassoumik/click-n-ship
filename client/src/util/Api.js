@@ -174,6 +174,20 @@ userData: [{
     date: Date.now()
 }],
 
+adminData: [{
+    id: 3,
+    name: "Sam McMillan",
+    email: "sm@example.com",
+    address1: "123 Main St",
+    address2: "Apt: 123",
+    address3: "",
+    city: "Atlanta",
+    state: "GA",
+    zip: "30346",
+    password: "password12345",
+    date: Date.now()
+}],
+
 orderData: [{
     orderID: "1",
     userID: "1",
@@ -203,6 +217,6 @@ orderData: [{
 
 
 
-export const {productData, orderData, userData} = Data;
+export const {productData, orderData, userData, adminData} = Data;
 
 // export default Data;

@@ -1,0 +1,13 @@
+.App-Nav-logo {
+    /* height: 40vmin; */
+    pointer-events: none;
+    position:absolute;
+    z-index: 1;
+    width: 40px;
+    height: 25px;
+}
+
+.centerAlign {
+    justify-content: center;
+    align-items: center;
+}

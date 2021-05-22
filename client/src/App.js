@@ -11,6 +11,7 @@ import Profile from './pages/Profile/Profile.js';
 import Order from './pages/Order/Order.js';
 import Confirmation from './pages/Confirmation/Confirmation.js';
 import AdminHome from './pages/AdminHome/AdminHome.js';
+import AdminLogin from './pages/AdminLogin/AdminLogin.js';
 import LoginContext from './util/Contexts/LoginContext';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/shipping" component={ShippingInfo}/>
         <Route exact path="/payment" component={PaymentInfo}/>
         <Route exact path="/login" component={Login}/>
+        <Route exact path="/adminlogin" component={AdminLogin}/>
         <Route exact path="/profile" component={Profile}/>
         <Route exact path="/order" component={Order}/>
         <Route exact path="/confirmation" component={Confirmation}/>
