@@ -9,14 +9,21 @@ const userID = userData.id;
 
 const reducer = (state, action) => {
 //    const {product} = state;
-console.log(state, action.item);
-console.log(state.cart.slice(action.item, 1));
+console.log(action.item);
+// console.log(state.cart.slice(action.item, 1));
 //   const initState = {
 //        count: 0,
 //        cart: [],
 //        user: null,
-//        cartTotal: 0
+//        cartSubTotal: 0,
+//
 //    }
+let newCart = [...state.cart]; 
+console.log(newCart);
+
+let cartItemRemoved = newCart.splice(action.item, 1);
+console.log(newCart);
+
   switch (action.type) {
   case "ADD-TO-CART":
     return {...state, 
@@ -26,11 +33,12 @@ console.log(state.cart.slice(action.item, 1));
                 id: userID,
                 name
             },
-            cartTotal: state.cartTotal + parseFloat(action.item.price) };
+            cartSubTotal: state.cartSubTotal + parseFloat(action.item.price) };
   case "DELETE-FROM-CART":
     return { ...state,
              count: state.count - 1,
-             cart: state.cart.splice(action.item, 1)};
+             cartSubTotal: state.cartSubTotal - parseFloat(state.cart[action.item].price),
+             cart: newCart};
   default:
     throw new Error(`Invalid action type: ${action.type}`);
   }
@@ -40,9 +48,10 @@ const CartProvider = ({ value = {
     count: 0,
     cart: [],
     user: {},
-    cartTotal: 0
+    cartSubTotal: 0,
+    cartTotal: 0,
 }, ...props }) => {
-  const [state, dispatch] = useReducer(reducer, { count: value.count, cart: value.cart, user: value.user, cartTotal: value.cartTotal });
+  const [state, dispatch] = useReducer(reducer, { count: value.count, cart: value.cart, user: value.user, cartSubTotal: value.cartSubTotal, cartTotal: value.cartTotal });
 
   return <Provider value={[state, dispatch]} {...props} />;
 };

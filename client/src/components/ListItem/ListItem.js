@@ -56,9 +56,10 @@ const useStyles = makeStyles((theme) => ({
 // export default function MediaControlCard() {
   const classes = useStyles();
   const theme = useTheme();
+
   const deleteProduct = () => {
       console.log("in delete function");
-      dispatch({type: "DELETE-FROM-CART", item: {index}});
+      dispatch({type: "DELETE-FROM-CART", item: index});
 
   }
 
@@ -89,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
         
         <div className={classes.controls}>
           <IconButton aria-label="delete" onClick={deleteProduct} >
-             <DeleteSharpIcon />
+           <DeleteSharpIcon />
         </IconButton>
      
         </div>

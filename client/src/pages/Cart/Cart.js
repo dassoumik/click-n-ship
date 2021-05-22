@@ -1,4 +1,5 @@
-import React from 'react';
+import React  from 'react';
+import {useHistory} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import { makeStyles } from '@material-ui/core/styles';
 import ListItem from '../../components/ListItem/ListItem';
@@ -20,6 +21,11 @@ import Paper from '@material-ui/core/Paper';
 
 function Cart() {
     const [state, dispatch] = useCartContext();
+    const history = useHistory();
+    function loadShipping () {
+      history.push("/shipping")
+
+    }
     const useStyles = makeStyles((theme) => ({
         root: {
           paddingRight: "2rem",
@@ -70,7 +76,7 @@ function Cart() {
               <TableCell component="th" scope="row">
                 Tax
               </TableCell>
-              <TableCell align="right">{(state.cartTotal*.07).toFixed(2)}</TableCell>
+              <TableCell align="right">{(state.cartSubTotal*.07).toFixed(2)}</TableCell>
           </TableRow>
           <TableRow >
               <TableCell component="th" scope="row">
@@ -82,7 +88,7 @@ function Cart() {
               <TableCell component="th" scope="row">
                 Total
               </TableCell>
-              <TableCell align="right"><small>$</small>{(state.cartTotal + state.cartTotal*.07 + 10).toFixed(2)}</TableCell>
+              <TableCell align="right"><small>$</small>{(state.cartSubTotal + state.cartSubTotal*.07 + 10).toFixed(2)}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -90,7 +96,7 @@ function Cart() {
         </CardContent>
     </Card>
       </div>
-<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem", alignSelf: "right"}} href="/shipping">
+<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem", alignSelf: "right"}} onClick={loadShipping}>
     Ship
 </Button>
     </Col>
