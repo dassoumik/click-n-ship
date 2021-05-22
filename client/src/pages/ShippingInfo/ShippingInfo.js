@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import {
   Form,
@@ -13,6 +14,15 @@ import {
 import './ShippingInfo.css';
 
 function ShippingInfo() {
+  const history = useHistory();
+
+   function loadCart () {
+     history.push("/cart");
+   }
+   
+  function loadPayment () {
+    history.push("/payment");
+  }
   
   return (
     <div >
@@ -82,10 +92,10 @@ function ShippingInfo() {
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
-  <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}} href="/cart">
+  <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}} onClick={loadCart}>
     Back
   </Button> 
-  <Button variant="click-button" style={{backgroundColor: "#80ffdb",  marginRight: "2rem", marginTop: "2rem"}} href="/payment">
+  <Button variant="click-button" style={{backgroundColor: "#80ffdb",  marginRight: "2rem", marginTop: "2rem"}} onClick={loadPayment}>
     Pay
   </Button>
   </Form.Row>   

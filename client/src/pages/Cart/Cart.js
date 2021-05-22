@@ -1,14 +1,11 @@
-import React from 'react';
+import React  from 'react';
+import {useHistory} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import { makeStyles } from '@material-ui/core/styles';
 import ListItem from '../../components/ListItem/ListItem';
-import {Button, Card, CardContent, CardActions} from '@material-ui/core';
-import {Col, Container, Row} from 'react-bootstrap';
+import {Button, Card, CardContent} from '@material-ui/core';
+import {Col, Row} from 'react-bootstrap';
 import {useCartContext} from '../../util/Store';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -20,6 +17,11 @@ import Paper from '@material-ui/core/Paper';
 
 function Cart() {
     const [state, dispatch] = useCartContext();
+    const history = useHistory();
+    function loadShipping () {
+      history.push("/shipping")
+
+    }
     const useStyles = makeStyles((theme) => ({
         root: {
           paddingRight: "2rem",
@@ -37,7 +39,7 @@ function Cart() {
                 <Col className="sm-col-8 md-col-8">
                 {console.log(state.cart)}
             {state.cart.map((product, index) => 
-                 {return (<ListItem product={product} index={index}/>);})}
+                 {return (<ListItem product={product} index={index} key={index}/>);})}
             </Col>
 
             <Col className="sm-col-3 mt-5 pr-2">
@@ -70,7 +72,7 @@ function Cart() {
               <TableCell component="th" scope="row">
                 Tax
               </TableCell>
-              <TableCell align="right">{(state.cartTotal*.07).toFixed(2)}</TableCell>
+              <TableCell align="right">{(state.cartSubTotal*.07).toFixed(2)}</TableCell>
           </TableRow>
           <TableRow >
               <TableCell component="th" scope="row">
@@ -82,7 +84,7 @@ function Cart() {
               <TableCell component="th" scope="row">
                 Total
               </TableCell>
-              <TableCell align="right"><small>$</small>{(state.cartTotal + state.cartTotal*.07 + 10).toFixed(2)}</TableCell>
+              <TableCell align="right"><small>$</small>{(state.cartSubTotal + state.cartSubTotal*.07 + 10).toFixed(2)}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -90,7 +92,7 @@ function Cart() {
         </CardContent>
     </Card>
       </div>
-<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem", alignSelf: "right"}} href="/shipping">
+<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem", alignSelf: "right"}} onClick={loadShipping}>
     Ship
 </Button>
     </Col>
