@@ -10,6 +10,7 @@ import Login from './pages/Login/Login.js';
 import Profile from './pages/Profile/Profile.js';
 import Order from './pages/Order/Order.js';
 import Confirmation from './pages/Confirmation/Confirmation.js';
+import AdminHome from './pages/AdminHome/AdminHome.js';
 import LoginContext from './util/Contexts/LoginContext';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/profile" component={Profile}/>
         <Route exact path="/order" component={Order}/>
         <Route exact path="/confirmation" component={Confirmation}/>
+        <Route exact path="/admin" component={AdminHome}/>
       </Switch>
       </LoginContext.Provider>
     </div>
