@@ -61,7 +61,7 @@ function LoginComp() {
   console.log(refUserEmail?.current?.value);
   console.log(refUserName?.current?.value);
 
-  const userData = {
+  let userData = {
     name: refUserName?.current?.value,
     email: refUserEmail?.current?.value, 
     password: refPassword?.current?.value, 
@@ -76,7 +76,18 @@ function LoginComp() {
   const createUser = () => {
     // e.preventDefault();
     //API call to validate user credentials;
-    console.log("in create user");
+     userData = {
+      name: refUserName?.current?.value,
+      email: refUserEmail?.current?.value, 
+      password: refPassword?.current?.value, 
+      addressStreetOne: refAddress1?.current?.value,
+      addressStreetTwo: refAddress2?.current?.value, 
+      addressStreetThree: refAddress3?.current?.value, 
+      addressCity: refCity?.current?.value, 
+      addressState: refState?.current?.value, 
+      addressZip: refZip?.current?.value
+    }
+    console.log("in create user", userData);
     API.postUser(userData)
      .then(status => {
        if (status === 200) {
