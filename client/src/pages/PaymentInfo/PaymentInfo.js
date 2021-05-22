@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import {
   Form,
@@ -11,8 +12,22 @@ import {
   Typography
 } from '@material-ui/core';
 import './PaymentInfo.css';
+import {useCartContext } from '../../util/Store';
 
 function PaymentInfo() {
+  const [state, dispatch] = useCartContext();
+  const history = useHistory();
+  console.log(state.cartSubTotal);
+  console.log(state.cart);
+  const paymentAmount = parseFloat(state.cartSubTotal) + parseFloat(state.cartSubTotal*.07) + 10;
+
+  function loadShipping() {
+    history.push("/shipping");
+  }
+
+  function initiateStripe () {
+    history.push("/confirmation");
+  }
   return (
     <div >
     <Navbar />
@@ -55,16 +70,16 @@ function PaymentInfo() {
     <Form.Control placeholder="MM/DD" />
      </Col>
      <Col>
-    <Form.Control placeholder="$" />
+    <Form.Control placeholder="$"  disabled ="disabled" value={paymentAmount.toFixed(2)}/>
      </Col>
   {/* </Form.Group> */}
    </Form.Row> 
   
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
-  <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}} href="/shipping">
+  <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}} onClick={loadShipping}>
     Back
   </Button> 
-  <Button variant="click-button" style={{backgroundColor: "#80ffdb",  marginRight: "2rem", marginTop: "2rem"}} href="/confirmation">
+  <Button variant="click-button" style={{backgroundColor: "#80ffdb",  marginRight: "2rem", marginTop: "2rem"}} onClick={initiateStripe}>
     Pay
   </Button>
   </Form.Row>   
