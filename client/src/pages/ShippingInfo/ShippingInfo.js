@@ -81,7 +81,7 @@ function ShippingInfo() {
   </Form.Row>  
    <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
      <Col style={{marginRight: "1rem"}}>
-    <Form.Control placeholder="" />
+    {loggedIn ? <Form.Control placeholder="" value={userData.addressCity} /> : <Form.Control placeholder="" />}
      </Col>
      <Col style={{marginRight: "1rem"}}>
     {/* <Form.Control placeholder="" /> */}
