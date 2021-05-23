@@ -96,7 +96,7 @@ function ShippingInfo() {
       </Form.Control>}
      </Col>
      <Col>
-    <Form.Control placeholder="" />
+     {loggedIn ? <Form.Control placeholder="" value={userData.addressZip} /> : <Form.Control placeholder="" />}
      </Col>
   {/* </Form.Group> */}
    </Form.Row> 
