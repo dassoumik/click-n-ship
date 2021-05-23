@@ -101,9 +101,9 @@ function ShippingInfo() {
   {/* </Form.Group> */}
    </Form.Row> 
 
-  <Form.Group id="formGridCheckbox">
+  {/* <Form.Group id="formGridCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
+  </Form.Group> */}
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
   <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}} onClick={loadCart}>
     Back
