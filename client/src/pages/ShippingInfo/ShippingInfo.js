@@ -85,10 +85,15 @@ function ShippingInfo() {
      </Col>
      <Col style={{marginRight: "1rem"}}>
     {/* <Form.Control placeholder="" /> */}
-    <Form.Control as="select" defaultValue="Choose...">
+    {loggedIn ?
+    <Form.Control as="select" defaultValue={userData.addressState}>
+        <option>{userData.addressState}</option>
+        <option>...</option>
+      </Form.Control> :
+      <Form.Control as="select" defaultValue="Choose...">
         <option>Choose...</option>
         <option>...</option>
-      </Form.Control>
+      </Form.Control>}
      </Col>
      <Col>
     <Form.Control placeholder="" />
