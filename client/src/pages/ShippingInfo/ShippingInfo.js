@@ -18,9 +18,6 @@ import LoginContext from '../../util/Contexts/LoginContext';
 function ShippingInfo() {
   const {loggedIn} = useContext(LoginContext);
   const {userData} = useContext(LoginContext);
-
-  console.log(userData);
-
   const history = useHistory();
 
    function loadCart () {
@@ -44,8 +41,6 @@ function ShippingInfo() {
       {loggedIn ? 
       <Form.Control type="text" placeholder="Enter name" value={userData.name} /> : <Form.Control type="text" placeholder="Enter name" /> }
     </Form.Group>
-
-    
   </Form.Row>
 
   <Form.Group controlId="formGridAddress1">
@@ -62,11 +57,8 @@ function ShippingInfo() {
       <Form.Label>Address 3</Form.Label>
       {loggedIn ? <Form.Control type="text" placeholder="Address Line 3" value={userData.addressStreetThree}/> : <Form.Control type="text" placeholder="Address Line 3" />}
     </Form.Group>
-
   <Form.Row>
- 
   </Form.Row>
-
   
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
     <Col style={{marginRight: "1rem"}}>
@@ -98,12 +90,8 @@ function ShippingInfo() {
      <Col>
      {loggedIn ? <Form.Control placeholder="" value={userData.addressZip} /> : <Form.Control placeholder="" />}
      </Col>
-  {/* </Form.Group> */}
    </Form.Row> 
 
-  {/* <Form.Group id="formGridCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group> */}
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
   <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}} onClick={loadCart}>
     Back
@@ -119,6 +107,5 @@ function ShippingInfo() {
  </div > 
   )
 }
-
 
 export default ShippingInfo
