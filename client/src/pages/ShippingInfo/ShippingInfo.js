@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import {
@@ -12,8 +12,14 @@ import {
   Typography
 } from '@material-ui/core';
 import './ShippingInfo.css';
+import LoginContext from '../../util/Contexts/LoginContext';
+
 
 function ShippingInfo() {
+  const {loggedIn} = useContext(LoginContext);
+  const {userData} = useContext(LoginContext);
+
+
   const history = useHistory();
 
    function loadCart () {
