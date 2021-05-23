@@ -19,6 +19,7 @@ function ShippingInfo() {
   const {loggedIn} = useContext(LoginContext);
   const {userData} = useContext(LoginContext);
 
+  console.log(userData);
 
   const history = useHistory();
 
@@ -40,7 +41,8 @@ function ShippingInfo() {
      <Form.Row>
      <Form.Group as={Col} controlId="formGridEmail">
       <Form.Label>Name</Form.Label>
-      <Form.Control type="text" placeholder="Enter name" />
+      {loggedIn ? 
+      <Form.Control type="text" placeholder="Enter name" value={userData.name} /> : <Form.Control type="text" placeholder="Enter name" /> }
     </Form.Group>
 
     
@@ -48,17 +50,17 @@ function ShippingInfo() {
 
   <Form.Group controlId="formGridAddress1">
     <Form.Label>Address</Form.Label>
-    <Form.Control placeholder="1234 Main St" />
+    {loggedIn ?  <Form.Control placeholder="1234 Main St" value={userData.addressStreetOne} /> :  <Form.Control placeholder="1234 Main St"  />}
   </Form.Group>
 
   <Form.Group controlId="formGridAddress2">
     <Form.Label>Address 2</Form.Label>
-    <Form.Control placeholder="Apartment, studio, or floor" />
+    {loggedIn ? <Form.Control placeholder="Apartment, studio, or floor" value={userData.addressStreetTwo}/> : <Form.Control placeholder="Apartment, studio, or floor" />}
   </Form.Group>
 
   <Form.Group as={Col} controlId="formGridPassword">
       <Form.Label>Address 3</Form.Label>
-      <Form.Control type="text" placeholder="Address Line 3" />
+      {loggedIn ? <Form.Control type="text" placeholder="Address Line 3" value={userData.addressStreetThree}/> : <Form.Control type="text" placeholder="Address Line 3" />}
     </Form.Group>
 
   <Form.Row>
