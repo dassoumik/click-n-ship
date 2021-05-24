@@ -22,8 +22,9 @@ function Product() {
 
     function loadProducts() {
       API.getProduct()
-           .then(res => setProducts(res.data));
-      setProductData(products?.slice(visibleStart, visibleEnd));  
+           .then(res => {
+             setProducts(res.data);
+             setProductData(products?.slice(0, 6))});  
       }
 
     const classes = makeStyles((theme) => ({
