@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import {
@@ -12,8 +12,12 @@ import {
   Typography
 } from '@material-ui/core';
 import './ShippingInfo.css';
+import LoginContext from '../../util/Contexts/LoginContext';
+
 
 function ShippingInfo() {
+  const {loggedIn} = useContext(LoginContext);
+  const {userData} = useContext(LoginContext);
   const history = useHistory();
 
    function loadCart () {
@@ -34,31 +38,27 @@ function ShippingInfo() {
      <Form.Row>
      <Form.Group as={Col} controlId="formGridEmail">
       <Form.Label>Name</Form.Label>
-      <Form.Control type="text" placeholder="Enter name" />
+      {loggedIn ? 
+      <Form.Control type="text" placeholder="Enter name" value={userData.name} /> : <Form.Control type="text" placeholder="Enter name" /> }
     </Form.Group>
-
-    
   </Form.Row>
 
   <Form.Group controlId="formGridAddress1">
     <Form.Label>Address</Form.Label>
-    <Form.Control placeholder="1234 Main St" />
+    {loggedIn ?  <Form.Control placeholder="1234 Main St" value={userData.addressStreetOne} /> :  <Form.Control placeholder="1234 Main St"  />}
   </Form.Group>
 
   <Form.Group controlId="formGridAddress2">
     <Form.Label>Address 2</Form.Label>
-    <Form.Control placeholder="Apartment, studio, or floor" />
+    {loggedIn ? <Form.Control placeholder="Apartment, studio, or floor" value={userData.addressStreetTwo}/> : <Form.Control placeholder="Apartment, studio, or floor" />}
   </Form.Group>
 
   <Form.Group as={Col} controlId="formGridPassword">
       <Form.Label>Address 3</Form.Label>
-      <Form.Control type="text" placeholder="Address Line 3" />
+      {loggedIn ? <Form.Control type="text" placeholder="Address Line 3" value={userData.addressStreetThree}/> : <Form.Control type="text" placeholder="Address Line 3" />}
     </Form.Group>
-
   <Form.Row>
- 
   </Form.Row>
-
   
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
     <Col style={{marginRight: "1rem"}}>
@@ -73,24 +73,25 @@ function ShippingInfo() {
   </Form.Row>  
    <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
      <Col style={{marginRight: "1rem"}}>
-    <Form.Control placeholder="" />
+    {loggedIn ? <Form.Control placeholder="" value={userData.addressCity} /> : <Form.Control placeholder="" />}
      </Col>
      <Col style={{marginRight: "1rem"}}>
     {/* <Form.Control placeholder="" /> */}
-    <Form.Control as="select" defaultValue="Choose...">
+    {loggedIn ?
+    <Form.Control as="select" defaultValue={userData.addressState}>
+        <option>{userData.addressState}</option>
+        <option>...</option>
+      </Form.Control> :
+      <Form.Control as="select" defaultValue="Choose...">
         <option>Choose...</option>
         <option>...</option>
-      </Form.Control>
+      </Form.Control>}
      </Col>
      <Col>
-    <Form.Control placeholder="" />
+     {loggedIn ? <Form.Control placeholder="" value={userData.addressZip} /> : <Form.Control placeholder="" />}
      </Col>
-  {/* </Form.Group> */}
    </Form.Row> 
 
-  <Form.Group id="formGridCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
   <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginLeft: "2rem", marginTop: "2rem"}} onClick={loadCart}>
     Back
@@ -106,6 +107,5 @@ function ShippingInfo() {
  </div > 
   )
 }
-
 
 export default ShippingInfo
