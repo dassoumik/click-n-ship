@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import './PaymentInfo.css';
 import {useCartContext } from '../../util/Store';
+import {API} from '../../util/Connections';
 
 function PaymentInfo() {
   const [state, dispatch] = useCartContext();
@@ -25,7 +26,8 @@ function PaymentInfo() {
     history.push("/shipping");
   }
 
-  function initiateStripe () {
+  async function initiateStripe () {
+
     history.push("/confirmation");
   }
   return (
