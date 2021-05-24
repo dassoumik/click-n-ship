@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
     userEmail: { type: String, required: true },
-    orderId: { type: Number, required: true },
+    orderId: { type: Number, required: false },
     totalPrice: { type: Number, required: true },
     products: { type: Array, required: true },
     date: { type: Date, default: Date.now }

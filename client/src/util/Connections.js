@@ -24,7 +24,7 @@ export const API = {
   },
   // Creates Orders
   postOrder: async (orderData) => {
-    let res = await axios.post("/api/user/", orderData);
+    let res = await axios.post("/api/orders/", orderData);
     return res.status;
   },
   // Gets the product with the given id
