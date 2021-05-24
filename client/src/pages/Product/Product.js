@@ -17,7 +17,7 @@ function Product() {
 
     useEffect(() => {
       loadProducts();
-      setProductData(products?.slice(visibleStart, visibleEnd));  
+      setProductData(products?.slice(0, 6));  
     },[]);
 
     function loadProducts() {
