@@ -8,12 +8,17 @@ import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 import { API } from '../../util/Connections';
+import "../../assets/images/logo_large.jpg";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
 
 function Product() {
     const [products, setProducts] = useState();
     const [productFetched, setProductData] = useState();
     const [visibleStart, setVisibleStart] = useState(0);  
     const [visibleEnd, setVisibleEnd] = useState(6);  
+    let myTimer;
 
     useEffect(() => {
       loadProducts();
@@ -48,7 +53,14 @@ function Product() {
         justify: {
           display: 'flex',
           justifyContent: 'spaceBetween'
-        }
+        },
+        spinner: {
+          display: 'inlineFlex',
+          '& > * + *': {
+            marginLeft: theme.spacing(4),
+          },
+         
+        },
       }));
       
       const handleBackArrow = () => {
@@ -77,7 +89,8 @@ function Product() {
     return (
         <div>
             <Navbar />
-            <div className={classes.root}>
+          {productFetched?.length ?  
+            (<div className={classes.root}>
       <Grid container className={classes.container} spacing={4} direction="column">          
       <Grid container spacing={4}>
         <Grid item xs={0} sm={12}>
@@ -115,8 +128,28 @@ It is a long established fact that a reader will be distracted by the readable c
         </Grid>
       </Grid>
 
-        </div>
-        </div>
+        </div>):
+
+        (<div className="mt-5 col-sm-12 col-md-6 mx-auto">
+          <div className="flex">
+          <img src="../../assets/images/logo_large.jpg" alt="logo_large"/>
+          <div className={classes.spinner}>
+           <LinearProgress  style={{margin: "0 5.2rem 0 5.2rem"}}/>
+          </div>
+          <IconButton  onClick={handleForwardArrow}>
+              <ArrowForwardIos color="primary" onClick={handleForwardArrow}/>
+              <ArrowForwardIos  color="primary" onClick={handleForwardArrow}/>
+              <ArrowForwardIos color="primary" onClick={handleForwardArrow}/>
+          </IconButton>
+           {/* {myTimer = setTimeout(() => {
+             this.inputElement.click();
+          }, 3000)} */}
+          {/* {clearTimeout(myTimer)} ref={input => this.IconButton = input} */}
+          </div>
+        </div>)}
+
+        </div> 
+
     )
 }
 
