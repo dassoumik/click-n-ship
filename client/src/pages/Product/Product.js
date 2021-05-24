@@ -4,12 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import ProductItem from '../../components/ProductItem/ProductItem';
-// import {productData} from "../../util/Api";
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 import { API } from '../../util/Connections';
-
 
 function Product() {
     const [products, setProducts] = useState();
@@ -53,19 +51,26 @@ function Product() {
       }));
       
       const handleBackArrow = () => {
+        if ( visibleStart - 6 >=0) {
         setVisibleStart((prevValue) => prevValue - 6);
         setVisibleEnd((prevValue) => prevValue - 6);
-        // productFetched = products?.slice(visibleStart, visibleEnd);  
-      setProductData(products?.slice(visibleStart, visibleEnd));  
-
+        } else {
+          setVisibleStart(0);
+          setVisibleEnd(6);
+        }
+        
+        setProductData(products?.slice(visibleStart, visibleEnd))
       }
 
       const handleForwardArrow = () => {
+        if (products?.length > visibleEnd + 6) {
         setVisibleStart((prevValue) => prevValue + 6);
         setVisibleEnd((prevValue) => prevValue + 6);
-      // productFetched = products?.slice(visibleStart, visibleEnd);  
-      setProductData(products?.slice(visibleStart, visibleEnd));  
-
+        } else {
+          setVisibleStart(0);
+          setVisibleEnd(6);
+        }
+        setProductData(products?.slice(visibleStart, visibleEnd)) 
       }
 
     return (
