@@ -13,21 +13,18 @@ import { API } from '../../util/Connections';
 
 function Product() {
     const [products, setProducts] = useState();
-    const [productData, setProductData] = useState();
+    const [productFetched, setProductData] = useState();
     const [visibleStart, setVisibleStart] = useState(0);  
     const [visibleEnd, setVisibleEnd] = useState(6);  
 
     useEffect(() => {
       loadProducts();
-      setProductData(products?.slice(setVisibleStart, setVisibleEnd));  
-
-
-    },[products, productData, setVisibleStart, setVisibleEnd]);
+      setProductData(products?.slice(visibleStart, visibleEnd));  
+    },[products, productFetched]);
 
     function loadProducts() {
       API.getProduct()
            .then(res => setProducts(res.data));
-      console.log(productData);     
       }
 
     const classes = makeStyles((theme) => ({
@@ -53,17 +50,17 @@ function Product() {
           justifyContent: 'spaceBetween'
         }
       }));
-    
-
       
       const handleBackArrow = () => {
         setVisibleStart((prevValue) => prevValue - 6);
         setVisibleEnd((prevValue) => prevValue - 6);
+        setProductData(products?.slice(visibleStart, visibleEnd));  
       }
 
       const handleForwardArrow = () => {
         setVisibleStart((prevValue) => prevValue + 6);
         setVisibleEnd((prevValue) => prevValue + 6);
+      setProductData(products?.slice(visibleStart, visibleEnd));  
       }
 
     return (
@@ -86,7 +83,7 @@ It is a long established fact that a reader will be distracted by the readable c
           <Paper className={classes.paper}>sm=3</Paper>
         </Grid>
       <Grid container className={classes.container} xs={12} sm={6} md={9} spacing={8}>
-             { productData?.slice(visibleStart, visibleEnd).map((productData) => 
+             { productFetched?.map((productData) => 
         <Grid item xs={12} sm={3} md={4}>
           <Paper  className={classes.paper}>
               <ProductItem productData={productData}/>
