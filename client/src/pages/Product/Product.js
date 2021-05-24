@@ -20,11 +20,12 @@ function Product() {
     useEffect(() => {
       loadProducts();
       setProductData(products?.slice(visibleStart, visibleEnd));  
-    },[products, productFetched]);
+    },[]);
 
     function loadProducts() {
       API.getProduct()
            .then(res => setProducts(res.data));
+      setProductData(products?.slice(visibleStart, visibleEnd));  
       }
 
     const classes = makeStyles((theme) => ({
@@ -54,13 +55,17 @@ function Product() {
       const handleBackArrow = () => {
         setVisibleStart((prevValue) => prevValue - 6);
         setVisibleEnd((prevValue) => prevValue - 6);
-        setProductData(products?.slice(visibleStart, visibleEnd));  
+        // productFetched = products?.slice(visibleStart, visibleEnd);  
+      setProductData(products?.slice(visibleStart, visibleEnd));  
+
       }
 
       const handleForwardArrow = () => {
         setVisibleStart((prevValue) => prevValue + 6);
         setVisibleEnd((prevValue) => prevValue + 6);
+      // productFetched = products?.slice(visibleStart, visibleEnd);  
       setProductData(products?.slice(visibleStart, visibleEnd));  
+
       }
 
     return (
