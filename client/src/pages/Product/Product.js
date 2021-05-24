@@ -1,16 +1,35 @@
-import { React, useState}  from 'react'
+import { React, useState, useEffect}  from 'react'
 import Navbar from '../../components/Navbar';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import ProductItem from '../../components/ProductItem/ProductItem';
-import {productData} from "../../util/Api";
+// import {productData} from "../../util/Api";
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
+import { API } from '../../util/Connections';
 
 
 function Product() {
+    const [products, setProducts] = useState();
+    const [productData, setProductData] = useState();
+    const [visibleStart, setVisibleStart] = useState(0);  
+    const [visibleEnd, setVisibleEnd] = useState(6);  
+
+    useEffect(() => {
+      loadProducts();
+      setProductData(products?.slice(setVisibleStart, setVisibleEnd));  
+
+
+    },[products, productData, setVisibleStart, setVisibleEnd]);
+
+    function loadProducts() {
+      API.getProduct()
+           .then(res => setProducts(res.data));
+      console.log(productData);     
+      }
+
     const classes = makeStyles((theme) => ({
         root: {
           flexGrow: 1,
@@ -35,8 +54,7 @@ function Product() {
         }
       }));
     
-      const [visibleStart, setVisibleStart] = useState(0);  
-      const [visibleEnd, setVisibleEnd] = useState(6);  
+
       
       const handleBackArrow = () => {
         setVisibleStart((prevValue) => prevValue - 6);
@@ -68,7 +86,7 @@ It is a long established fact that a reader will be distracted by the readable c
           <Paper className={classes.paper}>sm=3</Paper>
         </Grid>
       <Grid container className={classes.container} xs={12} sm={6} md={9} spacing={8}>
-             { productData.slice(visibleStart, visibleEnd).map((productData) => 
+             { productData?.slice(visibleStart, visibleEnd).map((productData) => 
         <Grid item xs={12} sm={3} md={4}>
           <Paper  className={classes.paper}>
               <ProductItem productData={productData}/>
