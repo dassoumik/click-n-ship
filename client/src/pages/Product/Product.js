@@ -55,15 +55,15 @@ function Product() {
         setVisibleStart((prevValue) => prevValue - 6);
         setVisibleEnd((prevValue) => prevValue - 6);
         } else {
-          setVisibleStart(0);
-          setVisibleEnd(6);
+          setVisibleStart(products?.length - 7);
+          setVisibleEnd(products?.length - 1);
         }
         
         setProductData(products?.slice(visibleStart, visibleEnd))
       }
 
       const handleForwardArrow = () => {
-        if (products?.length > visibleEnd + 6) {
+        if (products?.length > visibleEnd + 7) {
         setVisibleStart((prevValue) => prevValue + 6);
         setVisibleEnd((prevValue) => prevValue + 6);
         } else {
