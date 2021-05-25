@@ -12,6 +12,7 @@ import "../../assets/images/logo_large.jpg";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import ReactPlayer from 'react-player';
+import '../../assets/images/Click-n-Smile-Challenge.mp4';
 
 
 function Product() {
@@ -126,7 +127,15 @@ function Product() {
         </Grid>
         </Grid>
         <Grid item xs={0} sm={3} md={2}>
-          <Paper className={classes.paper}>sm=3</Paper>
+          <Paper className={classes.paper}>
+          {/* <iFrame width="100%" height="600" src="../../assets/images/Click-n-Smile-Challenge.mp4" controls></iFrame> */}
+          {/* <div style={{position:"relative", width:"fitContent", height:"fitContent"}}>
+            <a style={{position:"absolute", top:"20px", right:"1rem", opacity:0.8}} href="https://clipchamp.com/watch/xGAwXYumnUm?utm_source=embed&utm_medium=embed&utm_campaign=watch">
+                <img style={{height:"22px"}} src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />
+            </a> */}
+            <iframe  title="Click-n-Smile" style={{border:"none", allowautoplay: true, marginBottom: 0, paddingBottom: 0, loop: true}} src="https://clipchamp.com/watch/xGAwXYumnUm/embed" width="100%" height="440"></iframe>
+        {/* </div> */}
+          </Paper>
         </Grid>
         </Grid>
         </Grid>
