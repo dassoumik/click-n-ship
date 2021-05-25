@@ -37,7 +37,7 @@ function Product() {
     const classes = makeStyles((theme) => ({
         root: {
           flexGrow: 1,
-          marginTop: '20px',
+          padding: theme.spacing(2),
           zIndex: -1
         },
         paper: {
@@ -52,7 +52,8 @@ function Product() {
           overflow: 'hidden'
         },
         container: {
-          padding: "5%"
+          padding: "5%",
+          paddingTop: '1rem'
         },
         justify: {
           display: 'flex',
@@ -109,9 +110,9 @@ function Product() {
         </Grid>
       <Grid container spacing={3}>
         <Grid item xs={0} sm={3} md={1}>
-          <Paper className={classes.paper}>sm=3</Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
-      <Grid container className={classes.container} xs={12} sm={6} md={9} spacing={8}>
+      <Grid container className={classes.container} style={{marginTop: '1px'}} xs={12} sm={6} md={9} spacing={8}>
              { productFetched?.map((productData) => 
         <Grid item xs={12} sm={3} md={4}>
           <Paper  className={classes.paper}>
@@ -126,14 +127,14 @@ function Product() {
         </IconButton>      
         </Grid>
         </Grid>
-        <Grid item xs={0} sm={3} md={2}>
+        <Grid item xs={0} sm={3} md={2} style={{marginLeft: '1rem', marginTop: '3rem'}}>
           <Paper className={classes.paper}>
           {/* <iFrame width="100%" height="600" src="../../assets/images/Click-n-Smile-Challenge.mp4" controls></iFrame> */}
           {/* <div style={{position:"relative", width:"fitContent", height:"fitContent"}}>
             <a style={{position:"absolute", top:"20px", right:"1rem", opacity:0.8}} href="https://clipchamp.com/watch/xGAwXYumnUm?utm_source=embed&utm_medium=embed&utm_campaign=watch">
                 <img style={{height:"22px"}} src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />
             </a> */}
-            <iframe  title="Click-n-Smile" style={{border:"none", allowautoplay: true, marginBottom: 0, paddingBottom: 0, loop: true}} src="https://clipchamp.com/watch/xGAwXYumnUm/embed" width="100%" height="440"></iframe>
+            <iframe  title="Click-n-Smile" style={{border:"none", allowautoplay: true,  marginBottom: 0, paddingBottom: 0, loop: true}} src="https://clipchamp.com/watch/xGAwXYumnUm/embed" width="100%" height="440"></iframe>
         {/* </div> */}
           </Paper>
         </Grid>
