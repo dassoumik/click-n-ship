@@ -42,9 +42,9 @@ function Cart() {
                  {return (<ListItem product={product} index={index} key={index}/>);})}
             </Col>
 
-            <Col className="sm-col-3 mt-5 pr-2">
+            <Col className="xs-col-3 mt-5 pr-2">
 
-            <div className={classes.root}>
+            <div className={classes.root} style={{width: "30rem"}}>
 
       <Card variant="outlined" style={{ padding: '0 1rem 0 1rem'}}>
       <CardContent>
@@ -91,10 +91,12 @@ function Cart() {
     </TableContainer>
         </CardContent>
     </Card>
-      </div>
-<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem", alignSelf: "right"}} onClick={loadShipping}>
+      <div className="text-center" style={{display: 'flex', flexDirection: 'column', paddingLeft: '10rem', paddingRight: '10rem'}}>
+<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem",}} onClick={loadShipping}>
     Ship
 </Button>
+      </div>
+      </div>
     </Col>
             </Row>
 
