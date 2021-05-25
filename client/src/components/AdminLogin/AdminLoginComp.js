@@ -1,131 +1,196 @@
-import React, {useContext, useRef} from 'react';
+import React, { useContext, useRef } from 'react';
 import {
-    Form,
-    Col,
-  } from 'react-bootstrap';
+  Form,
+  Col,
+} from 'react-bootstrap';
 import {
-    Container,
-    Card,
-    Button,
-  } from '@material-ui/core';
+  Container,
+  Card,
+  Button,
+} from '@material-ui/core';
 import LoginContext from "../../util/Contexts/LoginContext";
 import '../../pages/ShippingInfo/ShippingInfo.css';
 import { useHistory } from 'react-router-dom';
-import {adminData} from '../../util/Api';
+// import {userData} from '../../util/Api';
+import { API } from "../../util/Connections";
 
 function AdminLoginComp() {
-  
-  const {setUserName} = useContext(LoginContext);   
-  const {setLoggedIn} = useContext(LoginContext);
+
+  const { setUserData } = useContext(LoginContext);
+  const { setLoggedIn } = useContext(LoginContext);
   const refAdminName = useRef();
+  const refAdminEmail = useRef();
   const refPassword = useRef();
+  const refAddress1 = useRef();
+  const refAddress2 = useRef();
+  const refAddress3 = useRef();
+  const refCity = useRef();
+  const refState = useRef();
+  const refZip = useRef();
+
+
+
   const history = useHistory();
 
   const authAdmin = (e) => {
-      // e.preventDefault();
-      //API call to validate user credentials;
-      const adminDBdata = adminData[0];
-      if (adminDBdata.email === refAdminName.current.value && adminDBdata.password === refPassword.current.value ) { 
-      console.log(refAdminName?.current.value);
-    setUserName(refAdminName?.current.value);
-    setLoggedIn(true);
-    history.push("/admin");
-      } else {
-        alert("Email or Password incorrect")
-      }
+    //API call to validate user credentials;
+    const adminCred = {
+      email: refAdminEmail?.current?.value,
+      password: refPassword?.current?.value
+    }
+    API.getAdmin(adminCred)
+      .then(res => {
+
+        if (res.status === 200) {
+          console.log(res);
+          setUserData(res.data);
+          setLoggedIn(true);
+          history.push("/admin");
+        } else {
+          alert("email or password is wrong");
+        }
+        return res.data;
+      }).then(data => console.log(data));
+    // const userDBdata = userData[0];
+    // if (userDBdata.email === refUserName.current.value && userDBdata.password === refPassword.current.value ) { 
+    // console.log(refUserName?.current.value);
+    // } else {
+    //   alert("Email or Password incorrect")
+    // }
+  }
+  console.log(refAdminEmail?.current?.value);
+  console.log(refAdminName?.current?.value);
+
+  let adminData = {
+    name: refAdminName?.current?.value,
+    email: refAdminEmail?.current?.value,
+    password: refPassword?.current?.value,
+    addressStreetOne: refAddress1?.current?.value,
+    addressStreetTwo: refAddress2?.current?.value,
+    addressStreetThree: refAddress3?.current?.value,
+    addressCity: refCity?.current?.value,
+    addressState: refState?.current?.value,
+    addressZip: refZip?.current?.value
   }
 
-    return (
-        <div >
-        <Container className="shipping-container " style={{width: "80%", padding: "4rem", backgroundColor: "#a2b29f"}}>
-         
-         <Card className="shipping-card" raised="true" style={{backgroundColor: "#3d4a5d", backgroundImage: "(linearGradient: 'to right, #121212, #3d4a5d')", color: '#f1ca89', boxShadow: '0 0 4px 4px #7e8c99',}}>    
-         <Form>
-         <Form.Row>
-    <Form.Group as={Col} controlId="formGridEmail">
-      <Form.Label>Admin Email</Form.Label>
-      <Form.Control className="form-control" type="email" placeholder="Enter email" ref={refAdminName}/>
-    </Form.Group>
+  const createAdmin = () => {
+    // e.preventDefault();
+    //API call to validate user credentials;
+    adminData = {
+      name: refAdminName?.current?.value,
+      email: refAdminEmail?.current?.value,
+      password: refPassword?.current?.value,
+      addressStreetOne: refAddress1?.current?.value,
+      addressStreetTwo: refAddress2?.current?.value,
+      addressStreetThree: refAddress3?.current?.value,
+      addressCity: refCity?.current?.value,
+      addressState: refState?.current?.value,
+      addressZip: refZip?.current?.value
+    }
+    console.log("in create user", adminData);
+    API.postAdmin(adminData)
+      .then(status => {
+        if (status === 200) {
+          history.push("/admin")
+          setUserData(adminData);
+          setLoggedIn(true);
+        } else {
+          alert("Something went wrong")
+        }
+      })
+  }
 
-    <Form.Group as={Col} controlId="formGridPassword">
-      <Form.Label>Admin Password</Form.Label>
-      <Form.Control type="password" placeholder="Password" ref={refPassword} />
-    </Form.Group>
-  </Form.Row>
-  <Form.Row style={{display: "flex", justifyContent: "center"}}>
-      <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem"}} onClick={authAdmin}>
-        Login
-      </Button> 
-      
-      </Form.Row>   
-      
-         <Form.Row>
-         <Form.Group as={Col} controlId="formGridEmail">
-          <Form.Label>Admin Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter name" />
-        </Form.Group>
-        
-      </Form.Row>
-    
-      <Form.Group controlId="formGridAddress1">
-        <Form.Label>Address</Form.Label>
-        <Form.Control placeholder="1234 Main St" />
-      </Form.Group>
-    
-      <Form.Group controlId="formGridAddress2">
-        <Form.Label>Address 2</Form.Label>
-        <Form.Control placeholder="Apartment, studio, or floor" />
-      </Form.Group>
-    
-      <Form.Group as={Col} controlId="formGridPassword">
-          <Form.Label>Address 3</Form.Label>
-          <Form.Control type="text" placeholder="Address Line 3" />
-        </Form.Group>
-    
-      <Form.Row>
-     
-      </Form.Row>
-      
-      <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
-        <Col style={{marginRight: "1rem"}}>
-        <Form.Label>City</Form.Label>
-        </Col>
-        <Col style={{marginRight: "1rem"}}>
-        <Form.Label>State</Form.Label>
-        </Col>
-        <Col>
-        <Form.Label>Zip</Form.Label>
-        </Col>
-      </Form.Row>  
-       <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
-         <Col style={{marginRight: "1rem"}}>
-        <Form.Control placeholder="" />
-         </Col>
-         <Col style={{marginRight: "1rem"}}>
-        {/* <Form.Control placeholder="" /> */}
-        <Form.Control as="select" defaultValue="Choose...">
-            <option>Choose...</option>
-            <option>...</option>
-          </Form.Control>
-         </Col>
-         <Col>
-        <Form.Control placeholder="" />
-         </Col>
-      {/* </Form.Group> */}
-       </Form.Row> 
-    
-      
-      <Form.Row style={{display: "flex", justifyContent: "center"}}>
-      <Button variant="click-button" style={{backgroundColor: "#80ffdb",   marginTop: "2rem"}} href="/admin">
-        Signup
+  return (
+    <div >
+      <Container className="shipping-container " style={{ width: "80%", padding: "4rem", backgroundColor: "#a2b29f" }}>
+
+        <Card className="shipping-card" raised="true" style={{ backgroundColor: "#3d4a5d", backgroundImage: "(linearGradient: 'to right, #121212, #3d4a5d')", color: '#f1ca89', boxShadow: '0 0 4px 4px #7e8c99', }}>
+          <Form>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Admin Email</Form.Label>
+                <Form.Control className="form-control" type="email" placeholder="Enter email" ref={refAdminEmail} />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Label>Admin Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" ref={refPassword} />
+              </Form.Group>
+            </Form.Row>
+            <Form.Row style={{ display: "flex", justifyContent: "center" }}>
+              <Button variant="click-button" style={{ backgroundColor: "#80ffdb", marginTop: "2rem" }} onClick={authAdmin}>
+                Login
       </Button>
-      </Form.Row>   
-    </Form>
-    </Card>
-     </Container > 
-     </div>
-    )
+
+            </Form.Row>
+
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Admin Name</Form.Label>
+                <Form.Control type="text" placeholder="Enter name" ref={refAdminName} />
+              </Form.Group>
+
+            </Form.Row>
+
+            <Form.Group controlId="formGridAddress1">
+              <Form.Label>Address</Form.Label>
+              <Form.Control placeholder="1234 Main St" ref={refAddress1} />
+            </Form.Group>
+
+            <Form.Group controlId="formGridAddress2">
+              <Form.Label>Address 2</Form.Label>
+              <Form.Control placeholder="Apartment, studio, or floor" ref={refAddress2} />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Address 3</Form.Label>
+              <Form.Control type="text" placeholder="Address Line 3" ref={refAddress3} />
+            </Form.Group>
+
+            <Form.Row>
+
+            </Form.Row>
+
+            <Form.Row style={{ display: "flex", justifyContent: "space-between" }}>
+              <Col style={{ marginRight: "1rem" }}>
+                <Form.Label>City</Form.Label>
+              </Col>
+              <Col style={{ marginRight: "1rem" }}>
+                <Form.Label>State</Form.Label>
+              </Col>
+              <Col>
+                <Form.Label>Zip</Form.Label>
+              </Col>
+            </Form.Row>
+            <Form.Row style={{ display: "flex", justifyContent: "space-between" }}>
+              <Col style={{ marginRight: "1rem" }}>
+                <Form.Control placeholder="" ref={refCity} />
+              </Col>
+              <Col style={{ marginRight: "1rem" }}>
+                {/* <Form.Control placeholder="" /> */}
+                <Form.Control as="select" defaultValue="Choose..." ref={refState}>
+                  <option>Choose...</option>
+                  <option>GA</option>
+                </Form.Control>
+              </Col>
+              <Col>
+                <Form.Control placeholder="" ref={refZip} />
+              </Col>
+              {/* </Form.Group> */}
+            </Form.Row>
+
+
+            <Form.Row style={{ display: "flex", justifyContent: "center" }}>
+              <Button variant="click-button" style={{ backgroundColor: "#80ffdb", marginTop: "2rem" }} onClick={createAdmin}>
+                Singup
+      </Button>
+            </Form.Row>
+          </Form>
+        </Card>
+      </Container >
+    </div>
+  )
 }
 
 
-export default AdminLoginComp;
+export default AdminLoginComp
