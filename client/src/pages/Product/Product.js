@@ -1,16 +1,37 @@
-import { React, useState}  from 'react'
+import { React, useState, useEffect}  from 'react'
 import Navbar from '../../components/Navbar';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import ProductItem from '../../components/ProductItem/ProductItem';
-import {productData} from "../../util/Api";
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
+import { API } from '../../util/Connections';
+import "../../assets/images/logo_large.jpg";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 
 function Product() {
+    const [products, setProducts] = useState();
+    const [productFetched, setProductData] = useState();
+    const [visibleStart, setVisibleStart] = useState(0);  
+    const [visibleEnd, setVisibleEnd] = useState(6);  
+    let myTimer;
+
+    useEffect(() => {
+      loadProducts();
+      setProductData(products?.slice(0, 6));  
+    },[]);
+
+    function loadProducts() {
+      API.getProduct()
+           .then(res => {
+             setProducts(res.data);
+             setProductData(products?.slice(0, 6))});  
+      }
+
     const classes = makeStyles((theme) => ({
         root: {
           flexGrow: 1,
@@ -32,26 +53,44 @@ function Product() {
         justify: {
           display: 'flex',
           justifyContent: 'spaceBetween'
-        }
+        },
+        spinner: {
+          display: 'inlineFlex',
+          '& > * + *': {
+            marginLeft: theme.spacing(4),
+          },
+         
+        },
       }));
-    
-      const [visibleStart, setVisibleStart] = useState(0);  
-      const [visibleEnd, setVisibleEnd] = useState(6);  
       
       const handleBackArrow = () => {
+        if ( visibleStart - 6 >=0) {
         setVisibleStart((prevValue) => prevValue - 6);
         setVisibleEnd((prevValue) => prevValue - 6);
+        } else {
+          setVisibleStart(products?.length - 7);
+          setVisibleEnd(products?.length - 1);
+        }
+        
+        setProductData(products?.slice(visibleStart, visibleEnd))
       }
 
       const handleForwardArrow = () => {
+        if (products?.length > visibleEnd + 7) {
         setVisibleStart((prevValue) => prevValue + 6);
         setVisibleEnd((prevValue) => prevValue + 6);
+        } else {
+          setVisibleStart(0);
+          setVisibleEnd(6);
+        }
+        setProductData(products?.slice(visibleStart, visibleEnd)) 
       }
 
     return (
         <div>
             <Navbar />
-            <div className={classes.root}>
+          {productFetched?.length ?  
+            (<div className={classes.root}>
       <Grid container className={classes.container} spacing={4} direction="column">          
       <Grid container spacing={4}>
         <Grid item xs={0} sm={12}>
@@ -68,7 +107,7 @@ It is a long established fact that a reader will be distracted by the readable c
           <Paper className={classes.paper}>sm=3</Paper>
         </Grid>
       <Grid container className={classes.container} xs={12} sm={6} md={9} spacing={8}>
-             { productData.slice(visibleStart, visibleEnd).map((productData) => 
+             { productFetched?.map((productData) => 
         <Grid item xs={12} sm={3} md={4}>
           <Paper  className={classes.paper}>
               <ProductItem productData={productData}/>
@@ -89,8 +128,28 @@ It is a long established fact that a reader will be distracted by the readable c
         </Grid>
       </Grid>
 
-        </div>
-        </div>
+        </div>):
+
+        (<div className="mt-5 col-sm-12 col-md-6 mx-auto">
+          <div className="flex">
+          <img src="../../assets/images/logo_large.jpg" alt="logo_large"/>
+          <div className={classes.spinner}>
+           <LinearProgress  style={{margin: "0 5.2rem 0 5.2rem"}}/>
+          </div>
+          <IconButton  onClick={handleForwardArrow}>
+              <ArrowForwardIos color="primary" onClick={handleForwardArrow}/>
+              <ArrowForwardIos  color="primary" onClick={handleForwardArrow}/>
+              <ArrowForwardIos color="primary" onClick={handleForwardArrow}/>
+          </IconButton>
+           {/* {myTimer = setTimeout(() => {
+             this.inputElement.click();
+          }, 3000)} */}
+          {/* {clearTimeout(myTimer)} ref={input => this.IconButton = input} */}
+          </div>
+        </div>)}
+
+        </div> 
+
     )
 }
 
