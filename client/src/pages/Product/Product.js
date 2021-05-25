@@ -105,6 +105,7 @@ function Product() {
                height="200px"
                controls
                allow='autoplay; encrypted-media'
+               araia-label='Now Added in Click-n-Play'
                />
           </Paper>
         </Grid>
@@ -145,6 +146,7 @@ function Product() {
         </div>):
 
         (<div className="mt-5 col-sm-12 col-md-6 mx-auto">
+          <span>If the screen do not refresh in 30 secs click the button below</span> 
           <div className="flex">
           <img src="../../assets/images/logo_large.jpg" alt="logo_large"/>
           <div className={classes.spinner}>
