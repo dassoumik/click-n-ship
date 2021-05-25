@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import {
@@ -13,10 +13,19 @@ import {
 } from '@material-ui/core';
 import './PaymentInfo.css';
 import {useCartContext } from '../../util/Store';
+import {API} from '../../util/Connections';
+import LoginContext from '../../util/Contexts/LoginContext';
+// import { orderData, loggedIn } from '../../util/Api';
 
 function PaymentInfo() {
   const [state, dispatch] = useCartContext();
   const history = useHistory();
+  const {loggedIn} = useContext(LoginContext);
+  const {userData} = useContext(LoginContext);
+  const orderData = {userEmail: "",
+                     orderId: "",
+                     totalPrice: 0.00,
+                     products: []};
   console.log(state.cartSubTotal);
   console.log(state.cart);
   const paymentAmount = parseFloat(state.cartSubTotal) + parseFloat(state.cartSubTotal*.07) + 10;
@@ -25,8 +34,17 @@ function PaymentInfo() {
     history.push("/shipping");
   }
 
-  function initiateStripe () {
-    history.push("/confirmation");
+  async function initiateStripe () {
+    loggedIn ? orderData.userEmail = userData.email : orderData.userEmail = ""
+    orderData.totalPrice = paymentAmount
+    orderData.products = state.cart
+    const status = await API.postOrder(orderData) 
+                            .then(status => status);
+    status === 200 ? 
+    history.push("/confirmation")
+    : alert(`Something went wrong! 
+             Please try after sometime. 
+             If your card has been charge it will be auto refunded.`)
   }
   return (
     <div >

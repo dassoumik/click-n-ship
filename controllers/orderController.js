@@ -3,6 +3,7 @@ const db = require("../models");
 // define route methods for product controller
 module.exports = {
     findAll: function (req, res) {
+        console.log(req.query);
         db.Order
             .find(req.query)
             .sort({ date: -1 })
