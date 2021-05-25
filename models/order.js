@@ -6,6 +6,8 @@ const orderSchema = new Schema({
     orderId: { type: Number, required: false },
     totalPrice: { type: Number, required: true },
     products: { type: Array, required: true },
+    taxTotal: {type: Number, required: false},
+    shippingTotal: {type: Number, required: false},
     date: { type: Date, default: Date.now }
 });
 

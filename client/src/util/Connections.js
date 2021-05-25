@@ -20,7 +20,9 @@ export const API = {
     },
   // Gets all orders
   getOrders: function(userID)  {
-    return axios.get("/api/orders/", userID);
+    const params = new URLSearchParams([['userEmail', userID]]);
+    console.log(params);
+    return axios.get("/api/orders/", {params});
   },
   // Creates Orders
   postOrder: async (orderData) => {
