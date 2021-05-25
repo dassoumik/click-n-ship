@@ -36,7 +36,8 @@ function Product() {
     const classes = makeStyles((theme) => ({
         root: {
           flexGrow: 1,
-          marginTop: '20px'
+          marginTop: '20px',
+          zIndex: -1
         },
         paper: {
           padding: theme.spacing(2),
@@ -98,7 +99,7 @@ function Product() {
         <Grid item xs={0} sm={12}>
           <Paper className={classes.paper}>
               <ReactPlayer url="https://youtu.be/pS1D_1l4SL8"
-               width="450px"
+               width="100%"
                height="200px"
                controls
                allow='autoplay; encrypted-media'

@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
+  height: {
+    minHeight: '50px',
+    paddingBottom: '13px'
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -202,7 +206,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <div className={classes.grow}>
+    <div className={`${classes.grow} ${classes.height}`}>
     
         <AppBar position="static" className={classes.header}>
         <Toolbar>
