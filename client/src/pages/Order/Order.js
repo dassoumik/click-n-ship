@@ -19,6 +19,7 @@ function Order() {
     }, [ loggedIn])
 
     let totalPrice = 0.00;
+    let grandTotalPrice = 0.00;
     // let dt = DateTime;
     function fetchOrderData() {
         console.log(userData?.email);
@@ -83,21 +84,22 @@ function Order() {
                               </Col>
                               <Col className="sm-col-2">
                               <Typography variant="body2">
-                                <span>{parseFloat(product.price)}</span>
+                                <span>{parseFloat(product.price).toFixed(2)}</span>
                               </Typography>
                               </Col>
                               <Col className="sm-col-1">
                               <Typography variant="body2">
-                                <span>{product.quantity}</span>
+                                <span>1</span>
                               </Typography>
                               </Col>
                               <Col className="sm-col-2">
                               <Typography variant="body2">
-                                {/* <span>{parseFloat(product.unitPrice)*parseFloat(product.quantity)}</span> */}
+                                <span>{parseFloat(product.price).toFixed(2)}</span>
                               </Typography>
                               </Col>
                               <div className="d-none">
-                              {/* {totalPrice += product.unitPrice*product.quantity} */}
+                              {totalPrice += product.price*1}
+                              {grandTotalPrice += product.price*1}
                               </div>
                           </Row>
                        )})}
@@ -110,7 +112,7 @@ function Order() {
                            </Col>
                            <Col className="sm-col-3">
                                <Typography>
-                                   {/* {parseFloat(order.taxTotal)}  */}
+                                   {parseFloat((grandTotalPrice*0.07).toFixed(2))} 
                                </Typography>
                            </Col>
 
@@ -124,7 +126,7 @@ function Order() {
                            </Col>
                            <Col className="sm-col-3">
                                <Typography>
-                                   {/* {parseFloat(order.shippingTotal)}  */}
+                                   {parseFloat(10.00).toFixed(2)} 
                                </Typography>
                            </Col>
 
