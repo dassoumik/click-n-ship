@@ -11,6 +11,8 @@ import { API } from '../../util/Connections';
 import "../../assets/images/logo_large.jpg";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import ReactPlayer from 'react-player';
+import '../../assets/images/Click-n-Smile-Challenge.mp4';
 
 
 function Product() {
@@ -35,6 +37,8 @@ function Product() {
     const classes = makeStyles((theme) => ({
         root: {
           flexGrow: 1,
+          padding: theme.spacing(2),
+          zIndex: -1
         },
         paper: {
           padding: theme.spacing(2),
@@ -48,7 +52,8 @@ function Product() {
           overflow: 'hidden'
         },
         container: {
-          padding: "5%"
+          padding: "5%",
+          paddingTop: '1rem'
         },
         justify: {
           display: 'flex',
@@ -94,19 +99,21 @@ function Product() {
       <Grid container className={classes.container} spacing={4} direction="column">          
       <Grid container spacing={4}>
         <Grid item xs={0} sm={12}>
-          <Paper className={classes.paper}>What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-</Paper>
+          <Paper className={classes.paper}>
+              <ReactPlayer url="https://youtu.be/pS1D_1l4SL8"
+               width="100%"
+               height="200px"
+               controls
+               allow='autoplay; encrypted-media'
+               araia-label='Now Added in Click-n-Play'
+               />
+          </Paper>
         </Grid>
       <Grid container spacing={3}>
         <Grid item xs={0} sm={3} md={1}>
-          <Paper className={classes.paper}>sm=3</Paper>
+          <Paper className={classes.paper}></Paper>
         </Grid>
-      <Grid container className={classes.container} xs={12} sm={6} md={9} spacing={8}>
+      <Grid container className={classes.container} style={{marginTop: '1px'}} xs={12} sm={6} md={9} spacing={8}>
              { productFetched?.map((productData) => 
         <Grid item xs={12} sm={3} md={4}>
           <Paper  className={classes.paper}>
@@ -121,8 +128,16 @@ It is a long established fact that a reader will be distracted by the readable c
         </IconButton>      
         </Grid>
         </Grid>
-        <Grid item xs={0} sm={3} md={2}>
-          <Paper className={classes.paper}>sm=3</Paper>
+        <Grid item xs={0} sm={3} md={2} style={{marginLeft: '1rem', marginTop: '3rem'}}>
+          <Paper className={classes.paper}>
+          {/* <iFrame width="100%" height="600" src="../../assets/images/Click-n-Smile-Challenge.mp4" controls></iFrame> */}
+          {/* <div style={{position:"relative", width:"fitContent", height:"fitContent"}}>
+            <a style={{position:"absolute", top:"20px", right:"1rem", opacity:0.8}} href="https://clipchamp.com/watch/xGAwXYumnUm?utm_source=embed&utm_medium=embed&utm_campaign=watch">
+                <img style={{height:"22px"}} src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />
+            </a> */}
+            <iframe  title="Click-n-Smile" style={{border:"none", allowautoplay: true,  marginBottom: 0, paddingBottom: 0, loop: true}} src="https://clipchamp.com/watch/xGAwXYumnUm/embed" width="100%" height="440"></iframe>
+        {/* </div> */}
+          </Paper>
         </Grid>
         </Grid>
         </Grid>
@@ -131,6 +146,7 @@ It is a long established fact that a reader will be distracted by the readable c
         </div>):
 
         (<div className="mt-5 col-sm-12 col-md-6 mx-auto">
+          <span>If the screen do not refresh in 30 secs click the button below</span> 
           <div className="flex">
           <img src="../../assets/images/logo_large.jpg" alt="logo_large"/>
           <div className={classes.spinner}>

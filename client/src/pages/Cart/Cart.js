@@ -42,17 +42,17 @@ function Cart() {
                  {return (<ListItem product={product} index={index} key={index}/>);})}
             </Col>
 
-            <Col className="sm-col-3 mt-5 pr-2">
+            <Col className="xs-col-3 mt-5 pr-2">
 
-            <div className={classes.root}>
+            <div className={classes.root} style={{width: "30rem"}}>
 
-      <Card className={classes.root} variant="outlined">
+      <Card variant="outlined" style={{ padding: '0 1rem 0 1rem'}}>
       <CardContent>
-        <Typography variant="h5"  component="h2" className={classes.title} color="textSecondary" gutterBottom>
+        <Typography  className={classes.title} color="textSecondary" gutterBottom>
           Cart Checkout Details
         </Typography>
-        <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+        <TableContainer className="mx-auto" style={{margin: '1rem 2rem 1rem 2rem', padding: '0 1rem 0 1rem'}} component={Paper}>
+      <Table className={classes.table}  aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Product</TableCell>
@@ -91,10 +91,12 @@ function Cart() {
     </TableContainer>
         </CardContent>
     </Card>
-      </div>
-<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem", alignSelf: "right"}} onClick={loadShipping}>
+      <div className="text-center" style={{display: 'flex', flexDirection: 'column', paddingLeft: '10rem', paddingRight: '10rem'}}>
+<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem",}} onClick={loadShipping}>
     Ship
 </Button>
+      </div>
+      </div>
     </Col>
             </Row>
 

@@ -9,7 +9,7 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import DeletetIcon from '@material-ui/icons/Delete';
-import { CardActionArea, Container } from '@material-ui/core';
+import { CardActionArea, CardActions, Container } from '@material-ui/core';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import {Col} from 'react-bootstrap';
 import { useCartContext } from '../../util/Store';
@@ -23,10 +23,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     margin: '2rem',
+    marginLeft: 0,
   },
   details: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
   },
   content: {
     flex: '1 0 auto',
@@ -48,8 +49,10 @@ const useStyles = makeStyles((theme) => ({
     width: 38,
   },
   container: {
-      width: 1050,
-      marginLeft: '2rem',
+      width: '30rem',
+      marginLeft: 0,
+      display: 'flex',
+      flexDirection: 'column'
   }
 }));
 
@@ -69,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 
     <Card className={classes.root} raised='true'>
       <div className={classes.details}>
-          <Col className="sm-col-2">
+          <Col className="xs-col-2">
           <CardMedia
           className={classes.cover}
           component="img"
@@ -77,23 +80,31 @@ const useStyles = makeStyles((theme) => ({
           title={product.title}
           /> 
           </Col>
-        <Col className="sm-col-4">
+        <Col className="xs-col-6">
         <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
+          <Typography >
             {product.title}
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+        </CardContent>
+        </Col>
+        <Col className="xs-col-2">
+
+        <CardContent className={classes.content}>
+          <Typography >
             Price: <small>$</small><strong>{product.price}</strong>
           </Typography>
         </CardContent>
         </Col>
         
-        <div className={classes.controls}>
-          <IconButton aria-label="delete" onClick={deleteProduct} >
+        {/* <div className={classes.controls}> */}
+        <Col className="xs-col-2">
+         <CardActions className={classes.content}>
+        <IconButton aria-label="delete" onClick={deleteProduct} >
            <DeleteSharpIcon />
         </IconButton>
-     
-        </div>
+         </CardActions> 
+        </Col>
+        {/* </div> */}
         
       </div>
      
