@@ -16,4 +16,6 @@ router.use("/admin", adminRoutes);
 // Order routes
 router.use("/orders", orderRoutes);
 
+// Payment routes
+router.use("/payment", paymentRoutes);
 module.exports = router;
