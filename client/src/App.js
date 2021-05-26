@@ -12,6 +12,9 @@ import Order from './pages/Order/Order.js';
 import Confirmation from './pages/Confirmation/Confirmation.js';
 import AdminHome from './pages/AdminHome/AdminHome.js';
 import AdminLogin from './pages/AdminLogin/AdminLogin.js';
+import AdminReporting from './pages/AdminReporting/AdminReporting.js';
+import AdminPost from './pages/AdminPost/AdminPost.js';
+import AdminOrders from './pages/AdminOrders/AdminOrders.js';
 import LoginContext from './util/Contexts/LoginContext';
 
 function App() {
@@ -33,6 +36,9 @@ function App() {
         <Route exact path="/order" component={Order}/>
         <Route exact path="/confirmation" component={Confirmation}/>
         <Route exact path="/admin" component={AdminHome}/>
+        <Route exact path="/reporting" component={AdminReporting} />
+        <Route exact path="/addproduct" component={AdminPost} />
+        <Route exact path="/orderhist" component={AdminOrders} />
       </Switch>
       </LoginContext.Provider>
     </div>
