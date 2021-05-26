@@ -39,7 +39,7 @@ function PaymentInfo() {
 
   async function initiateStripe () {
     console.log("in initiate stripe");
-    const response = await fetch("/create-checkout-session", {
+    const response = await fetch("/api/stripe", {
       method: "POST",
     });
     const session = await response.json();

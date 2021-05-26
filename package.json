@@ -27,6 +27,7 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.12.8",
     "react-icons": "^4.2.0",
-    "react-notifications-component": "^3.1.0"
+    "react-notifications-component": "^3.1.0",
+    "stripe": "^8.149.0"
   }
 }
