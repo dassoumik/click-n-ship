@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
-const productSeed = require("./productSeeds.json")
+const productSeed = require("./productSeed.json")
 
 // This file empties the Books collection and inserts the books below
 

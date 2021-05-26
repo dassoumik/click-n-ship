@@ -7,7 +7,8 @@
         "category": "Laptops",
         "rating": "5",
         "numOfRating": "15"
-    }, {
+    },
+    {
         "id": 2,
         "title": "2020 Newest Dell Inspiron 15 5000",
         "image": "https://m.media-amazon.com/images/I/71lhpu15m7L._AC_UY218_.jpg",
@@ -15,7 +16,8 @@
         "category": "Laptops",
         "rating": "4.5",
         "numOfRating": "49"
-    }, {
+    },
+    {
         "id": 3,
         "title": "ASUS Laptop L210 Ultra Thin Laptop",
         "image": "https://m.media-amazon.com/images/I/810BY5U9baL._AC_UY218_.jpg",
@@ -23,7 +25,8 @@
         "category": "Laptops",
         "rating": "4.5",
         "numOfRating": "2074"
-    }, {
+    },
+    {
         "id": 4,
         "title": "2021 Newest Dell Inspiron 3000 Laptop",
         "image": "https://m.media-amazon.com/images/I/71pSMhue5cL._AC_UY218_.jpg",
@@ -31,7 +34,8 @@
         "category": "Laptops",
         "rating": "4.5",
         "numOfRating": "52"
-    }, {
+    },
+    {
         "id": 5,
         "title": "Acer Aspire 5 Slim Laptop",
         "image": "https://m.media-amazon.com/images/I/71vvXGmdKWL._AC_UY218_.jpg",
@@ -41,7 +45,7 @@
         "numOfRating": "30173"
     },
     {
-        "id": 6, 
+        "id": 6,
         "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
         "price": 109.95,
         "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
@@ -199,5 +203,205 @@
         "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
         "category": "women's clothing",
         "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+    },
+    {
+        "id": 26,
+        "title": "ASUS ROG G512 Strix i7 RTX 2070 16GB/512GB Gaming Laptop",
+        "price": 1797.87,
+        "description": "15.6” 144Hz FHD IPS, NVIDIA GeForce RTX 2070, Intel Core i7-10750H, 16GB DDR4, 512GB PCIe NVMe SSD, RGB Keyboard, Windows 10 Home, G512LW-WS74",
+        "category": "electronics",
+        "image": "https://i5.walmartimages.com/asr/8a51f983-49db-4c53-806d-e39f4cbf443d.f7f3d53b2ae0ba0706d3c01655ffbc97.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff"
+    },
+    {
+        "id": 27,
+        "title": "MONSTER Alpha 7.1 RGB Illuminated Gaming Headset",
+        "price": 99.99,
+        "description": "7.1 Surround Sound, Noise-Cancelling Detachable Mic, Cushioned Earcups – For PC Gaming",
+        "category": "electronics",
+        "image": "https://i5.walmartimages.com/asr/ad089781-9a06-46b3-8166-e75887ee6699.a361311b8057e33b78c7a8ca68cb2356.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 28,
+        "title": "Gaming Keyboard and Mouse Combo Set",
+        "price": 20.99,
+        "description": "Rainbow Glow Backlit USB Keyboard RGB LED Keyboard 104 Keys For PC Gamer For Notebook Laptop Desktop PC Office Supplies, White / Black",
+        "category": "electronics",
+        "image": "https://i5.walmartimages.com/asr/1bb22f32-4c20-4347-9db4-20419a14f41d.a6175259bf4187dc2131614dd067654a.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 29,
+        "title": "MSI Gaming Monitor",
+        "price": 248.16,
+        "description": "MSI 27 Curved 1920x1080 HDMI DP 165Hz 1ms FreeSync LCD Gaming Monitor - Optix G27C4W",
+        "category": "electronics",
+        "image": "https://i5.walmartimages.com/asr/0e56878b-a6b9-4418-a0c1-82d13ffa816a_12.cbf0ff6c7c8e981d3638513edee9cd66.png?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 30,
+        "title": "FaceLake Fingertip Pulse Oximeter",
+        "price": 13.95,
+        "description": "Comes with Carrying Case, Lanyard & Batteries (Blue)",
+        "category": "health",
+        "image": "https://i5.walmartimages.com/asr/c99c19f1-0c89-4df0-92a4-f2b9fe73c2ec_1.7965a5e849bbbf6c9fcf6704f291f278.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 31,
+        "title": "RENPHO Air Purifier",
+        "price": 61.99,
+        "description": "Great Home Allergies and Pets Hair, Large Room 220 SQ.FT, True HEPA Filter, Quiet Air Cleaner Odor Eliminators in Bedroom for Mold Bacteria, Smoke, Germ, Dust and Pollen, Timer Black",
+        "category": "health",
+        "image": "https://i5.walmartimages.com/asr/7217ac86-e13b-48f0-b13f-0514975ac995.9eedeb029f7a7d3f2fe8ca9da9c71732.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 32,
+        "title": "Bencolle Wrist Wrap",
+        "price": 8.99,
+        "description": "Wrist Hand Brace Support Carpal Tunnel Splint Arthritis Sprain Strap Band Belt",
+        "category": "health",
+        "image": "https://i5.walmartimages.com/asr/54298642-adad-4e28-a8f2-1db25883dc19_1.ead6e716fb30b0087453ccec352f1c4a.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff"
+    },
+    {
+        "id": 33,
+        "title": "Premier Protein Shake",
+        "price": 24.99,
+        "description": "Premier Protein Shake, Chocolate, 30g Protein, 11.5 Fl Oz, 12 Ct",
+        "category": "health",
+        "image": "https://i5.walmartimages.com/asr/3917f5c8-62b0-45d7-ba48-b0eaed755206.15bb6012666644fa88fa0525460db5d4.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 34,
+        "title": "Time and Tru Women’s Fashion Sneakers",
+        "price": 24.98,
+        "description": "Size 7 Time and Tru Women’s Fashion Sneakers",
+        "category": "women's clothing",
+        "image": "https://i5.walmartimages.com/asr/62f757fe-cf6c-4135-a34f-6047f78569fe.9bc0c47c347fbe7fd1aa6b3db917f355.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 35,
+        "title": "Rokka&Rolla Swim Suit",
+        "price": 25.29,
+        "description": "Rokka&Rolla Men's 8 Inch Stretch Swim Trunks with Mesh Lining, up to Size 2XL",
+        "category": "men's clothing",
+        "image": "https://i5.walmartimages.com/asr/a42af522-47ab-4273-9abe-ab9876428bc7_1.1414a02840d02be2e33b75e8625514f2.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 36,
+        "title": "Free Assembly Shirt",
+        "price": 18.00,
+        "description": "Free Assembly Men's Oversized Pocket T-Shirt",
+        "category": "men's clothing",
+        "image": "https://i5.walmartimages.com/asr/ff9c681a-e485-4745-b33a-0ad1f57b27f4.40fce6c04790b7ad176f615e13ffa0e6.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 37,
+        "title": "George Shorts",
+        "price": 9.96,
+        "description": "George Men's 10 Inch Flat Front Shorts",
+        "category": "men's clothing",
+        "image": "https://i5.walmartimages.com/asr/a500b183-54b0-48fc-8c5c-c3a0b36e6172.b4f590d97bfa11ca86ccd3044bd9aadd.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 38,
+        "title": "SHINE ARMOR Revive Scratch Repair",
+        "price": 18.95,
+        "description": "For Vehicles, Shine Cloth Scratch Remover 4oz.",
+        "category": "auto & tire",
+        "image": "https://i5.walmartimages.com/asr/ef0b484c-4f90-4b50-9f37-e07c7f8f1dca_1.9ab85ad7317b3bf03022768996480c08.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 39,
+        "title": "Windshield Wiper Blade",
+        "price": 10.88,
+        "description": "Rain-X Expert Fit Hybrid Windshield Wiper Blade 19 Inch Replacement H19",
+        "category": "auto & tire",
+        "image": "https://i5.walmartimages.com/asr/6d2384ef-db19-4dc9-96d7-1259f8a4ce7f_1.8cef83781a2a9c3027d611211ae76634.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff"
+    },
+    {
+        "id": 40,
+        "title": "Motocraft Antifreeze",
+        "price": 33.50,
+        "description": "Motorcraft 50/50 Prediluted Yellow Antifreeze Coolant 1 Gallon VC13DLG",
+        "category": "auto & tire",
+        "image": "https://i5.walmartimages.com/asr/0ca145b8-7bfc-4161-b19a-f6542e25ad6e.a5efb7b27994b2a009bad68f70da6ba6.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff"
+    },
+    {
+        "id": 41,
+        "title": "Chevron Full Synthetic Motor Oil",
+        "price": 19.97,
+        "description": "Chevron Havoline Smart Change Pro-DS 0W20 Full Synthetic Motor Oil, 6qt",
+        "category": "auto & tire",
+        "image": "https://i5.walmartimages.com/asr/fb19026d-6c8b-427a-916a-7689c059f65a.f278bf9c499ffcd48011cd8f9fb621d4.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 42,
+        "title": "Scotch-Brite Lint Roller",
+        "price": 18.88,
+        "description": "8 Count Value Pack, 60 Sheets per Roller",
+        "category": "household items",
+        "image": "https://i5.walmartimages.com/asr/9da4099a-be30-434f-b9fa-d6afef420ef0_1.640c99119f189a7a6a2717eeb72ab901.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff"
+    },
+    {
+        "id": 43,
+        "title": "Solo Plastic Cups",
+        "price": 10.18,
+        "description": "10 Oz, Clear, 36 Ct",
+        "category": "household items",
+        "image": "https://i5.walmartimages.com/asr/a56edfae-a023-4f56-882f-88f6582c579c_1.dc85c12f6518b1cb8fa8348094d6e3d2.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff"
+    },
+    {
+        "id": 44,
+        "title": "NordicTrack T Series Treadmill",
+        "price": 650.14,
+        "description": "10 % OneTouch incline control; 10 MPH SMART OneTouch speed control; With iFit, your trainer auto-adjusts your speed and incline through a smart Bluetooth connection",
+        "category": "fitness",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/71CmokS1dhS._AC_SL1500_.jpg"
+    },
+    {
+        "id": 45,
+        "title": "JFIT Dead Weight Slam Ball",
+        "price": 35.55,
+        "description": "Great for Strength and Conditioning WODs, Plyometric and Core Training, and Cardio Workouts",
+        "category": "fitness",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/917hKllhy2L._AC_SL1500_.jpg"
+    },
+    {
+        "id": 46,
+        "title": "Perfect Fitness Weight Vest",
+        "price": 99.99,
+        "description": "Maximum Comfort with flat, flexible weights that move with your body",
+        "category": "fitness",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/815zSuOFdPL._AC_SL1500_.jpg"
+    },
+    {
+        "id": 47,
+        "title": "Dumbbells Hand Weights Set of 2",
+        "price": 52.75,
+        "description": "Rubber Hex Chrome Handle Exercise & Fitness Dumbbell for Home Gym Equipment Workouts Strength Training Free Weights for Women, Men",
+        "category": "fitness",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/61CBBwqNdoL._AC_SL1500_.jpg"
+    },
+    {
+        "id": 48,
+        "title": "BTFBM Women Boho Floral Print Long Skirt",
+        "price": 28.99,
+        "description": "Women Print Skirt Design - Woman Skirt Clothes / Soft Pure Cotton Fabric / Cute Floral Pattern / High Low Hem / High Side Split / Ruffle Hem / With Full Lining / High-Waisted / Elastic Waist / Maxi Long Length / Casual Fashion Style / Size Choice From S To 2XL",
+        "category": "women's clothing",
+        "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+    },
+    {
+        "id": 49,
+        "title": "Punch Me Up to the Gods: A Memoir by Brian Broome",
+        "price": 12.99,
+        "description": "Punch Me Up to the Gods obliterates what we thought were the limitations of not just the American memoir, but the possibilities of the American paragraph. I’m not sure a book has ever had me sobbing, punching the air, dying of laughter, and needing to write as much as Brian Broome’s staggering debut.",
+        "category": "books",
+        "image": "https://m.media-amazon.com/images/P/B08B3K4KWV.01._SCLZZZZZZZ_SX500_.jpg"
+    },
+    {
+        "id": 50,
+        "title": "The Plot by Jean Hanff Korelitz",
+        "price": 16.80,
+        "description": "'Insanely readable.' — Stephen King",
+        "category": "books",
+        "image": "https://m.media-amazon.com/images/P/125079076X.01._SCLZZZZZZZ_SX500_.jpg"
     }
 ]
