@@ -113,7 +113,6 @@ export const PaymentForm = () => {
                     console.log(response);
                     if(response.status === 200) {
                         console.log("Successful payment")
-                        // history.push('/confirmation');
                         loggedIn ? orderData.userEmail = userData.email : orderData.userEmail = ""
                         orderData.totalPrice = paymentAmount
                         orderData.products = state.cart
