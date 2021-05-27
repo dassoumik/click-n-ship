@@ -113,17 +113,19 @@ export const PaymentForm = () => {
                     console.log(response);
                     if(response.status === 200) {
                         console.log("Successful payment")
-                        // history.push('/confirmation');
                         loggedIn ? orderData.userEmail = userData.email : orderData.userEmail = ""
                         orderData.totalPrice = paymentAmount
                         orderData.products = state.cart
                         const status = await API.postOrder(orderData) 
                                                 .then(status => status);
-                        status === 200 ? 
-                        history.push("/confirmation")
-                        : alert(`Something went wrong! 
+                        if (status === 200 ) {
+                          dispatch({ type: "INIT-CART" })
+                          history.push("/confirmation")
+                        } else {
+                          alert(`Something went wrong! 
                                  Please try after sometime. 
                                  If your card has been charge it will be auto refunded.`)
+                        } 
                     }
         
                 } catch (error) {

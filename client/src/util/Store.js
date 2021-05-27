@@ -39,6 +39,11 @@ console.log(newCart);
              count: state.count - 1,
              cartSubTotal: state.cartSubTotal - parseFloat(state.cart[action.item].price),
              cart: newCart};
+  case "INIT-CART":
+  return { ...state,
+            count: 0,
+            cartSubTotal: 0.00,
+            cart: []};
   default:
     throw new Error(`Invalid action type: ${action.type}`);
   }
