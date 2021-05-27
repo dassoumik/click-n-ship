@@ -1,4 +1,4 @@
-const stripe = require('stripe')('rk_test_51Iv1oQBpbp1PocXbwJbWlGFauXuHJrTRhrvsDBph08D6cNp7nQ3wA1YWsTsMERoCt8lmbhtAzkB10W9aLrp3ebmc0044tlj5wG'); 
+const stripe = require('stripe')(process.env.SECRET_KEY);
 const cors = require('cors');
 
 module.exports  = {
