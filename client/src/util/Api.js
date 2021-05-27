@@ -205,4 +205,3 @@ orderData: [{
 
 export const {productData, orderData, userData} = Data;
 
-// export default Data;

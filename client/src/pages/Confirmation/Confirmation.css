@@ -2,7 +2,6 @@
     margin-top: 5%;
     border-color: grey;
     box-shadow: darkgrey;
-    /* background-color: grey; */
     padding: 5rem;
     width: 20%;
     text-align: left;
@@ -27,5 +26,4 @@
     background-image: 'linearGradient(to right, #121212, #3d4a5d)';
     color: #f1ca89;
     margin: 2rem !important;
-    /* box-shadow: '0 0 4px 4px #7e8c99'; */
 }

@@ -7,8 +7,6 @@ const LoginContext = React.createContext({
     setLoggedIn: () => {}
 })
 
-
-
 export default LoginContext 
 
 

@@ -16,7 +16,6 @@ import {useCartContext } from '../../util/Store';
 import {API} from '../../util/Connections';
 import LoginContext from '../../util/Contexts/LoginContext';
 import { loadStripe } from '@stripe/stripe-js';
-// import { orderData, loggedIn } from '../../util/Api';
 
 const stripePromise = loadStripe("pk_test_51Iv1oQBpbp1PocXbux3EqQrtdBMxLZ5eK2bslufAi28AqWknbTtFzRc4aTJWM0gdDFZTGDpSVTUXhNZoLen8Bl9D00IH5aQhBU");
 
@@ -29,8 +28,6 @@ function PaymentInfo() {
                      orderId: "",
                      totalPrice: 0.00,
                      products: []};
-  console.log(state.cartSubTotal);
-  console.log(state.cart);
   const paymentAmount = parseFloat(state.cartSubTotal) + parseFloat(state.cartSubTotal*.07) + 10;
 
   function loadShipping() {
@@ -38,7 +35,6 @@ function PaymentInfo() {
   }
 
   async function initiateStripe () {
-    console.log("in initiate stripe");
     const response = await fetch("/api/stripe", {
       method: "POST",
     });
@@ -58,7 +54,6 @@ function PaymentInfo() {
     const query = new URLSearchParams(window.location.search);
 
     if (query.get("success")) {
-      // setMessage("Order placed! You will receive an email confirmation.");
     
     loggedIn ? orderData.userEmail = userData.email : orderData.userEmail = ""
     orderData.totalPrice = paymentAmount
@@ -123,7 +118,6 @@ function PaymentInfo() {
      <Col>
     <Form.Control placeholder="$"  disabled ="disabled" value={paymentAmount.toFixed(2)}/>
      </Col>
-  {/* </Form.Group> */}
    </Form.Row> 
   
   <Form.Row style={{display: "flex", justifyContent: "space-between"}}>
@@ -143,6 +137,5 @@ function PaymentInfo() {
  </div > 
   )
 }
-
 
 export default PaymentInfo

@@ -3,26 +3,13 @@ import {productData, userData } from "./Api";
 
 const CartContext = createContext();
 const { Provider } = CartContext;
-const { id, title, image, price, category, rating, numOfRating } = productData;
 const { name } = userData;
 const userID = userData.id;
 
 const reducer = (state, action) => {
-//    const {product} = state;
-console.log(action.item);
-// console.log(state.cart.slice(action.item, 1));
-//   const initState = {
-//        count: 0,
-//        cart: [],
-//        user: null,
-//        cartSubTotal: 0,
-//
-//    }
 let newCart = [...state.cart]; 
-console.log(newCart);
 
 let cartItemRemoved = newCart.splice(action.item, 1);
-console.log(newCart);
 
   switch (action.type) {
   case "ADD-TO-CART":

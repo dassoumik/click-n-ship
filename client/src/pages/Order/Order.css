@@ -2,9 +2,7 @@
     margin-top: 1rem;
     border-color: grey;
     box-shadow: darkgrey;
-    /* background-color: grey; */
     padding: 5rem;
-    /* width: 20%; */
     text-align: center;
     color: #f1ca89;
     font-weight: 700;
@@ -31,5 +29,4 @@
     margin-bottom: 2rem !important;
     max-width: 99%;
     min-width: 99%;
-    /* box-shadow: '0 0 4px 4px #7e8c99'; */
 }

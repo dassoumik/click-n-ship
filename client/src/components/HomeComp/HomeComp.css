@@ -1,5 +1,4 @@
 .HomeComp {
-    /* padding-top: 180px; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -35,11 +34,6 @@
     font-weight: 500;
   }
   
-  /* .HomeComp img.aspect-ratio {
-    width:270px;
-    height:450px;
-  } */
-
   .App-logo {
     height: 40vmin;
     pointer-events: none;

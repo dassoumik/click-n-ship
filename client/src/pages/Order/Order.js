@@ -3,7 +3,6 @@ import Navbar from "../../components/Navbar";
 import {Col, Row} from 'react-bootstrap';
 import {Card} from '@material-ui/core';
 import { Typography } from '@material-ui/core';
-// import {orderData} from '../../util/Api';
 import {API} from '../../util/Connections';
 import './Order.css';
 import LoginContext from "../../util/Contexts/LoginContext"
@@ -20,21 +19,14 @@ function Order() {
 
     let totalPrice = 0.00;
     let grandTotalPrice = 0.00;
-    // let dt = DateTime;
     function fetchOrderData() {
-        console.log(userData?.email);
         API.getOrders(userData?.email)
            .then(res => setOrderData(res.data)); 
-        console.log(orderData);
-        
     }
-
-//   fetchOrderData() 
 
     return (
         <div>
         <Navbar/>
-        {console.log(orderData)}
         {loggedIn && orderData?.length ? 
         <Row className="d-flex flex-column sm-col-12 md-col-6 m-5" style={{justifyItems:"center", justifyself: "center"}}>
                     <Col className="sm-col-0 md-col-1"></Col>
