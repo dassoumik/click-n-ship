@@ -136,8 +136,12 @@ export default function PrimarySearchAppBar() {
 
   const loadCart = (event) => {
     event.preventDefault();
-    console.log("in loadCart");
     history.push("/cart");
+  }
+
+  const loadProduct = (event) => {
+    event.preventDefault();
+    history.push("/product");
   }
 
   const menuId = 'primary-search-account-menu';
@@ -194,8 +198,8 @@ export default function PrimarySearchAppBar() {
         (<p use="button" href="/order">Order History</p>) : null 
         }
       </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit" >
+      <MenuItem >
+        <IconButton  onClick={loadCart} color="inherit" >
           <Badge badgeContent={state.count} color="secondary" >
             <ShoppingCartIcon />
           </Badge>
@@ -215,6 +219,7 @@ export default function PrimarySearchAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            onClick={loadProduct}
           >
             <MenuIcon />
           </IconButton>
