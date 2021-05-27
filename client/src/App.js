@@ -5,7 +5,6 @@ import Home from './pages/Home/Home.js';
 import Product from './pages/Product/Product.js';
 import Cart from './pages/Cart/Cart.js';
 import ShippingInfo from './pages/ShippingInfo/ShippingInfo.js';
-import PaymentInfo from './pages/PaymentInfo/PaymentInfo.js';
 import Payment from './pages/Payment';
 import Login from './pages/Login/Login.js';
 import Profile from './pages/Profile/Profile.js';

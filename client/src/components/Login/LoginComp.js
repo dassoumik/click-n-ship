@@ -11,7 +11,6 @@ import {
 import LoginContext from "../../util/Contexts/LoginContext";
 import '../../pages/ShippingInfo/ShippingInfo.css';
 import { useHistory } from 'react-router-dom';
-// import {userData} from '../../util/Api';
 import {API} from "../../util/Connections";
 
 function LoginComp() {
@@ -27,9 +26,6 @@ function LoginComp() {
   const refCity = useRef();
   const refState = useRef();
   const refZip = useRef();
-
-
-
   const history = useHistory();
 
   const authUser = (e) => {
@@ -42,7 +38,6 @@ function LoginComp() {
           .then(res => {
       
       if (res.status === 200) {
-        console.log(res);
       setUserData(res.data);
       setLoggedIn(true);
       history.push("/product");
@@ -51,16 +46,8 @@ function LoginComp() {
       }
       return res.data;
     }).then(data => console.log(data));
-      // const userDBdata = userData[0];
-      // if (userDBdata.email === refUserName.current.value && userDBdata.password === refPassword.current.value ) { 
-      // console.log(refUserName?.current.value);
-      // } else {
-      //   alert("Email or Password incorrect")
-      // }
+   
   }
-  console.log(refUserEmail?.current?.value);
-  console.log(refUserName?.current?.value);
-
   let userData = {
     name: refUserName?.current?.value,
     email: refUserEmail?.current?.value, 
@@ -74,7 +61,6 @@ function LoginComp() {
   }
 
   const createUser = () => {
-    // e.preventDefault();
     //API call to validate user credentials;
      userData = {
       name: refUserName?.current?.value,
@@ -87,7 +73,6 @@ function LoginComp() {
       addressState: refState?.current?.value, 
       addressZip: refZip?.current?.value
     }
-    console.log("in create user", userData);
     API.postUser(userData)
      .then(status => {
        if (status === 200) {
@@ -98,15 +83,6 @@ function LoginComp() {
       alert("Something went wrong")  
     }})
 
-
-    // const userDBdata = userData[0];
-    // if (userDBdata.email === refUserName.current.value && userDBdata.password === refPassword.current.value ) { 
-    // console.log(refUserName?.current.value);
-
-  // history.push("/product");
-  //   // } else {
-  //     alert("Email or Password incorrect")
-  //   }
 }
 
     return (
@@ -116,29 +92,27 @@ function LoginComp() {
          <Card className="shipping-card" raised="true" style={{backgroundColor: "#3d4a5d", backgroundImage: "(linearGradient: 'to right, #121212, #3d4a5d')", color: '#f1ca89', boxShadow: '0 0 4px 4px #7e8c99',}}>    
          <Form>
          <Form.Row>
-    <Form.Group as={Col} controlId="formGridEmail">
-      <Form.Label>Email</Form.Label>
-      <Form.Control className="form-control" type="email" placeholder="Enter email" ref={refUserEmail}/>
-    </Form.Group>
+        <Form.Group as={Col} controlId="formGridEmail">
+         <Form.Label>Email</Form.Label>
+          <Form.Control className="form-control" type="email" placeholder="Enter email" ref={refUserEmail}/>
+        </Form.Group>
 
-    <Form.Group as={Col} controlId="formGridPassword">
-      <Form.Label>Password</Form.Label>
-      <Form.Control type="password" placeholder="Password" ref={refPassword} />
-    </Form.Group>
-  </Form.Row>
-  <Form.Row style={{display: "flex", justifyContent: "center"}}>
-      <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem"}} onClick={authUser}>
-        Login
-      </Button> 
+        <Form.Group as={Col} controlId="formGridPassword">
+         <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" ref={refPassword} />
+        </Form.Group>
+        </Form.Row>
+       <Form.Row style={{display: "flex", justifyContent: "center"}}>
+        <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem"}} onClick={authUser}>
+          Login
+        </Button> 
       
       </Form.Row>   
-      
          <Form.Row>
          <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Name</Form.Label>
           <Form.Control type="text" placeholder="Enter name" ref={refUserName}/>
         </Form.Group>
-        
       </Form.Row>
     
       <Form.Group controlId="formGridAddress1">
@@ -176,30 +150,24 @@ function LoginComp() {
         <Form.Control placeholder="" ref={refCity}/>
          </Col>
          <Col style={{marginRight: "1rem"}}>
-        {/* <Form.Control placeholder="" /> */}
         <Form.Control as="select" defaultValue="Choose..." ref={refState}>
-            <option>Choose...</option>
-            <option>GA</option>
           </Form.Control>
          </Col>
          <Col>
         <Form.Control placeholder="" ref={refZip} />
          </Col>
-      {/* </Form.Group> */}
        </Form.Row> 
-    
       
       <Form.Row style={{display: "flex", justifyContent: "center"}}>
       <Button variant="click-button" style={{backgroundColor: "#80ffdb",   marginTop: "2rem"}} onClick={createUser}>
         Singup
       </Button>
       </Form.Row>   
-    </Form>
-    </Card>
+      </Form>
+      </Card>
      </Container > 
      </div>
     )
 }
-
 
 export default LoginComp

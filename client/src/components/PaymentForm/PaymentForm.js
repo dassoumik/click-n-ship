@@ -17,9 +17,6 @@ import {
   import LoginContext from '../../util/Contexts/LoginContext';
   import './PaymentForm.css';
 
-// function PaymentForm() {
-//     return (
-//         <div>
 export const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
@@ -42,7 +39,6 @@ export const PaymentForm = () => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    console.log("in use Effect")
     window
       .fetch("/api/stripe", {
         method: "POST",
@@ -57,7 +53,6 @@ export const PaymentForm = () => {
       })
       .then(data => {
         setClientSecret(data.clientSecret);
-        console.log(clientSecret)
       });
   }, []);
 
@@ -92,7 +87,6 @@ export const PaymentForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("in handle submit")
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement('card'),
@@ -201,11 +195,5 @@ export const PaymentForm = () => {
      
   );
 };
-
-
-
-    //     </div>
-    // )
-// }
 
 export default PaymentForm

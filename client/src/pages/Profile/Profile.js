@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import Navbar from "../../components/Navbar";
-import {Form, Container, Col, Row} from 'react-bootstrap';
+import {Col} from 'react-bootstrap';
 import {Card} from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import LoginContext from '../../util/Contexts/LoginContext';
@@ -8,14 +8,11 @@ import './Profile.css';
 
 function Profile() {
     const { userData }= useContext(LoginContext);
-    console.log(userData);
  
     return (
         <div>
         <Navbar/>
         <div className="d-flex flex-column sm-col-12" style={{justifyItems:"center", justifyself: "center"}}>
-            {/* <Container className="m-5 text-white profile-container" style={{width: "40%", }}> */}
-                {/* <Row> */}
                     <Col className="sm-col-0 md-col-3"></Col>
                     <Col className="sm-col-12 md-col-6 profile-container pt-5">
                       <Card className="profile-card" raised="true">   
@@ -47,22 +44,6 @@ function Profile() {
                       </Card>  
                     </Col>
                     <Col className="sm-col-0 md-col-3"></Col>
-                {/* </Row>  */}
-            {/* </Container> */}
-            {/* <Container className="m-5 text-white profile-container" style={{width: "40%", }}>    
-                <Row>
-                    <Col>
-                       
-                    </Col>
-                </Row>
-            </Container>
-            <Container className="m-5 text-white profile-container" style={{width: "90%", }}>
-                <Row>
-                    <Col>
-                      
-                    </Col>
-                </Row> 
-            </Container> */}
             </div>
         </div>
     )

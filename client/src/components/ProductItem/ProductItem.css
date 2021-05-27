@@ -4,12 +4,6 @@
 }
 
 .box1 {
-    /* border-radius: 10px;
-    color: black;
-    overflow: hidden;
-    height: 300px;
-    max-height: 40vh;
-    width: 300px; */
     -webkit-box-shadow: 0px 12 px 18px -6px rgba(0,0,0,0.3);
     box-shadow: 0px 12 px 18px -6px rgba(0,0,0,0.3);
     @media screen(min-width: 600px) {
@@ -34,7 +28,6 @@
   
   .custom-card:hover {
     transform: scale(1.05);
-    /* box-shadow: 0px 0px 10px 5px #03dac5; */
   }
   
   .custom-card .content {
@@ -85,7 +78,6 @@
   }
   
   .custom-card .custom-button:hover {
-    /* background-color: #bb86fc; */
     color: #c9d1d9;
   }
   

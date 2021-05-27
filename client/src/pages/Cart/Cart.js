@@ -37,7 +37,6 @@ function Cart() {
             <Navbar/>
             <Row className={classes.root}>
                 <Col className="sm-col-8 md-col-8">
-                {console.log(state.cart)}
             {state.cart.map((product, index) => 
                  {return (<ListItem product={product} index={index} key={index}/>);})}
             </Col>
@@ -92,15 +91,14 @@ function Cart() {
         </CardContent>
     </Card>
       <div className="text-center" style={{display: 'flex', flexDirection: 'column', paddingLeft: '10rem', paddingRight: '10rem'}}>
-<Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem",}} onClick={loadShipping}>
+  <Button variant="click-button" style={{backgroundColor: "#80ffdb", marginTop: "2rem",}} onClick={loadShipping}>
     Ship
-</Button>
+  </Button>
       </div>
       </div>
     </Col>
-            </Row>
-
-        </div>
+  </Row>
+</div>
     )
 }
 

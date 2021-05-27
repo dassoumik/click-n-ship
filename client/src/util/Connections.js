@@ -3,25 +3,21 @@ import axios from "axios";
 export const API = {
   // Gets user
   getUser: async function(userCred)  {
-    console.log(userCred);
     const params = new URLSearchParams([['email', userCred.email], ['password', userCred.password]]);
     let res = await axios.get("/api/users/", {params});
     return res;
   },
  // Gets user
   postUser: async function(userData) {
-    console.log(userData);
       try {
     let res = await axios.post("/api/users/", userData);
     
-    // console.log(res.status);
     return res.status;
       } catch(err) { console.error(err)}
     },
   // Gets all orders
   getOrders: function(userID)  {
     const params = new URLSearchParams([['userEmail', userID]]);
-    console.log(params);
     return axios.get("/api/orders/", {params});
   },
   // Creates Orders

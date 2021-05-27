@@ -1,15 +1,11 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
-import DeletetIcon from '@material-ui/icons/Delete';
-import { CardActionArea, CardActions, Container } from '@material-ui/core';
+import { CardActions, Container } from '@material-ui/core';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import {Col} from 'react-bootstrap';
 import { useCartContext } from '../../util/Store';
@@ -34,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
   },
   cover: {
     width: 151,
-    // width: 30,
   },
   controls: {
     display: 'flex',
@@ -56,20 +51,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-// export default function MediaControlCard() {
   const classes = useStyles();
-  const theme = useTheme();
 
   const deleteProduct = () => {
-      console.log("in delete function");
       dispatch({type: "DELETE-FROM-CART", item: index});
-
   }
 
   return (
       <>
       <Container className={classes.container}>
-
     <Card className={classes.root} raised='true'>
       <div className={classes.details}>
           <Col className="xs-col-2">
@@ -96,7 +86,6 @@ const useStyles = makeStyles((theme) => ({
         </CardContent>
         </Col>
         
-        {/* <div className={classes.controls}> */}
         <Col className="xs-col-2">
          <CardActions className={classes.content}>
         <IconButton aria-label="delete" onClick={deleteProduct} >
@@ -104,7 +93,6 @@ const useStyles = makeStyles((theme) => ({
         </IconButton>
          </CardActions> 
         </Col>
-        {/* </div> */}
         
       </div>
      
