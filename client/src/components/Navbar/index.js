@@ -225,7 +225,7 @@ export default function PrimarySearchAppBar() {
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
           <Badge badgeContent={4} color="secondary">
-            <a href="/product"><img src={logo} alt="logo" className={"App-Nav-Logo"}/></a>
+            <a href="/"><img src={logo} alt="logo" className={"App-Nav-Logo"}/></a>
           </Badge>  
           </Typography>
           <div className={classes.grow} />
