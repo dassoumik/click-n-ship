@@ -104,7 +104,7 @@ export const PaymentForm = () => {
       try {
                     const {id} = paymentMethod
                     const response = await axios.post("/api/stripe/", {
-                        amount: state.cart.totalAmount,
+                        amount: state.cart.totalAmount*100,
                         id,
                         email: state.cart.userEmail,
                         payment_method: paymentMethod.type,
