@@ -1,70 +1,51 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# click-n-ship 
 
-## Available Scripts
+## Table of Contents 
 
-In the project directory, you can run:
+* [Overview](#Overview)
+* [Access](#Access)
+* [User Story](#User-Story)
+* [Walk Through](#Walk-Through)
+* [Futur Improvements](#Futur-Improvements)
+* [Team](#Team)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The click-n-ship is an e-commerce application that allows users to signup and buy any products they want. So, once the user logged in, he or she will click on the product picture and it will direct him to another page, where he can make the payment, by submitting his credit card information. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Access
 
-### `npm test`
+You can find the deployed webpage here: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You can find the GitHub repo here: https://github.com/dassoumik/click-n-ship
 
-### `npm run build`
+## User Story
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As a customer, 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I want to be able to go to click-n ship application and buy my product. Thus, i want to be able to stay safe when i enter sensitive information such as my credit card information. I want to be able to signup, create my password and access my account. Moreove, I want to be able to enter my credit information and make my purchase safely, without being hacked. After purchasing, I want to be able to get confirmation my payment process was made successfully. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Walk Through
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Futur improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1.  When it comes to improving this application, we want to have better debit card design for client. A better frontend design will make the user to trust our application and will bring more users.
 
-### Analyzing the Bundle Size
+2. We want to be able connect google API to our application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Team
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This application was developed by the Regal swans team, consisting of four team members:
+* Soumik, @dassoumik
+* Daniel, @dboivert13  
+* Sammy, @smcmillan28
+* Charles, @charles198618
