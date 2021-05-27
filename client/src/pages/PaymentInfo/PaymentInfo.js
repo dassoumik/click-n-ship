@@ -15,7 +15,10 @@ import './PaymentInfo.css';
 import {useCartContext } from '../../util/Store';
 import {API} from '../../util/Connections';
 import LoginContext from '../../util/Contexts/LoginContext';
+import { loadStripe } from '@stripe/stripe-js';
 // import { orderData, loggedIn } from '../../util/Api';
+
+const stripePromise = loadStripe("pk_test_51Iv1oQBpbp1PocXbux3EqQrtdBMxLZ5eK2bslufAi28AqWknbTtFzRc4aTJWM0gdDFZTGDpSVTUXhNZoLen8Bl9D00IH5aQhBU");
 
 function PaymentInfo() {
   const [state, dispatch] = useCartContext();
@@ -35,6 +38,28 @@ function PaymentInfo() {
   }
 
   async function initiateStripe () {
+    console.log("in initiate stripe");
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+    });
+    const session = await response.json();
+
+    const result = await stripePromise.redirectToCheckout({
+      sessionId: session.id,
+    });
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+      alert(`Error occured. Please try after sometime. 
+             Error - ${result.error.message}`);
+    }
+
+    const query = new URLSearchParams(window.location.search);
+
+    if (query.get("success")) {
+      // setMessage("Order placed! You will receive an email confirmation.");
+    
     loggedIn ? orderData.userEmail = userData.email : orderData.userEmail = ""
     orderData.totalPrice = paymentAmount
     orderData.products = state.cart
@@ -45,7 +70,15 @@ function PaymentInfo() {
     : alert(`Something went wrong! 
              Please try after sometime. 
              If your card has been charge it will be auto refunded.`)
+      
   }
+
+  if (query.get("canceled")) {
+    alert(
+      "Order canceled -- continue to shop around and checkout when you're ready."
+    );
+  }
+}
   return (
     <div >
     <Navbar />
